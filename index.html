@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGuardian AI - Learn Smarter. Stay Safe. Thrive Academically.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e40af;
+            --primary-green: #16a34a;
+            --secondary-blue: #3b82f6;
+            --light-blue: #eff6ff;
+            --dark-text: #1e293b;
+            --gray-text: #64748b;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--light-blue) 0%, rgba(255,255,255,0) 100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-text);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .dashboard-preview {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            padding: 1rem;
+            position: relative;
+        }
+
+        .dashboard-header {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px 8px 0 0;
+            margin: -1rem -1rem 1rem -1rem;
+        }
+
+        .metric-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric-card {
+            background: var(--light-blue);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--gray-text);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--gray-text);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--light-blue);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+
+        .feature-description {
+            color: var(--gray-text);
+        }
+
+        .feature-tag {
+            display: inline-block;
+            background: var(--primary-green);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--light-blue) 0%, white 100%);
+        }
+
+        .steps-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            line-height: 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-blue);
+            box-shadow: 0 10px 40px rgba(30, 64, 175, 0.1);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin: 1rem 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--gray-text);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: var(--gray-text);
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: var(--primary-green);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Trust Section */
+        .trust {
+            padding: 4rem 2rem;
+            background: var(--light-blue);
+        }
+
+        .trust-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .trust-logo {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .trust-logo:hover {
+            opacity: 1;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: var(--gray-text);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-text);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+
+        /* Floating Action Button */
+        .chat-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Alert Banner */
+        .alert-banner {
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 0.75rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Live Demo Button */
+        .live-demo {
+            background: var(--primary-green);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 1rem;
+            transition: all 0.3s;
+        }
+
+        .live-demo:hover {
+            transform: scale(1.05);
+        }
+
+        .pulse {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Alert Banner -->
+    <div class="alert-banner">
+        🎓 Limited Time: Get 50% off for the first 100 schools!
+        <a href="#pricing" class="live-demo">
+            <span class="pulse"></span>
+            Claim Offer
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                🛡️ EduGuardian AI
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#trust">Security</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="#" class="btn btn-secondary">Login</a>
+                <a href="#" class="btn btn-primary">Start Free Trial</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in">
+                <h1>Your AI Guardian for Academic Integrity & Success</h1>
+                <p>Prevents cheating. Protects students. Personalizes learning.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Get Started Free</a>
+                    <a href="#" class="btn btn-secondary">Request Demo</a>
+                </div>
+                <div class="trust-badges">
+                    <div class="badge">
+                        <span>✓</span> FERPA Compliant
+                    </div>
+                    <div class="badge">
+                        <span>✓</span> GDPR Ready
+                    </div>
+                    <div class="badge">
+                        <span>✓</span> SOC 2 Certified
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="dashboard-preview">
+                    <div class="dashboard-header">
+                        <h3>📊 Real-Time Dashboard</h3>
+                    </div>
+                    <div class="metric-cards">
+                        <div class="metric-card">
+                            <div class="metric-value">98%</div>
+                            <div class="metric-label">Safe Browsing</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">73%</div>
+                            <div class="metric-label">Less Cheating</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">4.8/5</div>
+                            <div class="metric-label">Student Rating</div>
+                        </div>
+                    </div>
+                    <div style="background: #f1f5f9; padding: 1rem; border-radius: 8px;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                            <span style="background: #ef4444; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">ALERT</span>
+                            <span style="color: #64748b;">Potential plagiarism detected in Assignment #3</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <span style="background: #f59e0b; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">WARNING</span>
+                            <span style="color: #64748b;">3 students showing signs of burnout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2>How EduGuardian AI Empowers You</h2>
+            <p>Advanced AI technology that protects and supports your educational journey</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3 class="feature-title">AI Study Mentor</h3>
+                <p class="feature-description">Get personalized study plans, weak spot analysis, and burnout alerts tailored to your learning style.</p>
+                <span class="feature-tag">For Students</span>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3 class="feature-title">Safe Learning Environment</h3>
+                <p class="feature-description">Blocks scams, phishing sites, and cheating resources in real-time to keep you focused.</p>
+                <span class="feature-tag">For Students</span>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏳</div>
+                <h3 class="feature-title">Productivity Guardian</h3>
+                <p class="feature-description">Track focus time and avoid burnout with smart break recommendations.</p>
+                <span class="feature-tag">For Students</span>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚩</div>
+                <h3 class="feature-title">Cheating Detection</h3>
+                <p class="feature-description">Advanced AI flags copied code, plagiarism, and suspicious browsing patterns.</p>
+                <span class="feature-tag">For Educators</span>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Student Wellness Dashboard</h3>
+                <p class="feature-description">Spot at-risk students before they fail with predictive analytics.</p>
+                <span class="feature-tag">For Educators</span>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3 class="feature-title">Secure Learning Network</h3>
+                <p class="feature-description">Ensure students only access verified educational resources.</p>
+                <span class="feature-tag">For Educators</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-header">
+            <h2>Simple Setup, Powerful Results</h2>
+            <p>Get started in minutes, see results immediately</p>
+        </div>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Quick Installation</h3>
+                <p>Install our browser extension or integrate with your LMS in one click.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">AI Learning</h3>
+                <p>Our AI learns from behavior patterns while respecting privacy settings.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Real-Time Protection</h3>
+                <p>Get instant alerts, personalized insights, and academic support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section style="padding: 4rem 2rem; background: white;">
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Schools Protected</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">73%</div>
+                <div class="stat-label">Reduction in Cheating</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">1M+</div>
+                <div class="stat-label">Students Supported</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">4.8/5</div>
+                <div class="stat-label">Average Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <h2>Choose Your Plan</h2>
+            <p>Flexible pricing for students and institutions</p>
+        </div>
+        <div class="pricing-container">
+            <div class="pricing-card">
+                <h3>Student Free</h3>
+                <div class="price">$0<span>/month</span></div>
+                <ul class="pricing-features">
+                    <li>Basic study planner</li>
+                    <li>Safe browsing (1 device)</li>
+                    <li>Weekly progress reports</li>
+                    <li>Community support</li>
+                </ul>
+                <a href="#" class="btn btn-secondary" style="width: 100%;">Start Free</a>
+            </div>
+            <div class="pricing-card featured">
+                <h3>Student Pro</h3>
+                <div class="price">$5<span>/month</span></div>
+                <ul class="pricing-features">
+                    <li>Full AI mentor</li>
+                    <li>Emotion & burnout tracking</li>
+                    <li>Unlimited devices</li>
+                    <li>Priority support</li>
+                    <li>Advanced analytics</li>
+                </ul>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Start Trial</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Institution</h3>
+                <div class="price">Custom</div>
+                <ul class="pricing-features">
+                    <li>LMS integration</li>
+                    <li>Admin dashboard</li>
+                    <li>24/7 dedicated support</li>
+                    <li>Custom reporting</li>
+                    <li>Training & onboarding</li>
+                </ul>
+                <a href="#" class="btn btn-secondary" style="width: 100%;">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust" id="trust">
+        <div class="section-header">
+            <h2>Your Data, Your Control</h2>
+            <p>Privacy-first approach with enterprise-grade security</p>
+        </div>
+        <div class="trust-logos">
+            <div class="trust-logo">
+                <img src="data:image/svg+xml,%3Csvg width='100' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50' y='25' text-anchor='middle' font-size='14' fill='%23666'%3EFERPA%3C/text%3E%3C/svg%3E" alt="FERPA">
+            </div>
+            <div class="trust-logo">
+                <img src="data:image/svg+xml,%3Csvg width='100' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50' y='25' text-anchor='middle' font-size='14' fill='%23666'%3EGDPR%3C/text%3E%3C/svg%3E" alt="GDPR">
+            </div>
+            <div class="trust-logo">
+                <img src="data:image/svg+xml,%3Csvg width='100' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50' y='25' text-anchor='middle' font-size='14' fill='%23666'%3ESOC 2%3C/text%3E%3C/svg%3E" alt="SOC 2">
+            </div>
+            <div class="trust-logo">
+                <img src="data:image/svg+xml,%3Csvg width='100' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50' y='25' text-anchor='middle' font-size='14' fill='%23666'%3EISO 27001%3C/text%3E%3C/svg%3E" alt="ISO 27001">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🛡️ EduGuardian AI</h3>
+                <p style="color: #94a3b8; margin-top: 1rem;">Protecting academic integrity while empowering student success.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Demo</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Compliance</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EduGuardian AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Chat Button -->
+    <div class="chat-button" onclick="alert('Chat feature coming soon! Email us at support@eduguardian.ai')">
+        💬
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 0.6s forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards and sections
+        document.querySelectorAll('.feature-card, .step, .pricing-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add animation to stats when they come into view
+        let animated = false;
+        const animateStats = () => {
+            if (animated) return;
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = parseInt(stat.innerText);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.innerText = stat.innerText;
+                        clearInterval(timer);
+                    } else {
+                        stat.innerText = Math.floor(current) + (stat.innerText.includes('%') ? '%' : '+');
+                    }
+                }, 30);
+            });
+            animated = true;
+        };
+
+        // Check if stats section is in view
+        const statsSection = document.querySelector('.stats');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Dynamic typing effect for hero headline
+        const headline = document.querySelector('.hero-content h1');
+        const originalText = headline.innerText;
+        let index = 0;
+
+        function typeWriter() {
+            if (index < originalText.length) {
+                headline.innerText = originalText.slice(0, index + 1);
+                index++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        // Start typing effect after page loads
+        window.addEventListener('load', () => {
+            headline.innerText = '';
+            typeWriter();
+        });
+
+        // Add interactive hover effects to feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.background = 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.background = 'var(--light-blue)';
+            });
+        });
+
+        // Simulate live dashboard updates
+        setInterval(() => {
+            const metrics = document.querySelectorAll('.metric-value');
+            metrics.forEach(metric => {
+                const current = parseFloat(metric.innerText);
+                const variation = (Math.random() - 0.5) * 2;
+                if (!isNaN(current)) {
+                    metric.innerText = (current + variation).toFixed(0) + '%';
+                }
+            });
+        }, 5000);
+    </script>
+</body>
+</html>
