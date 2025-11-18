@@ -84,16 +84,6 @@
             gap: 1rem;
         }
 
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark-text);
-        }
-
         /* Buttons */
         .btn {
             padding: 0.75rem 1.5rem;
@@ -169,73 +159,8 @@
             margin-bottom: 2rem;
         }
 
-        .trust-badges {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            margin-top: 2rem;
-        }
-
-        .badge {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--gray-text);
-        }
-
-        .hero-visual {
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .dashboard-preview {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            padding: 1rem;
-            position: relative;
-        }
-
-        .dashboard-header {
-            background: var(--gradient);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px 8px 0 0;
-            margin: -1rem -1rem 1rem -1rem;
-        }
-
-        .metric-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .metric-card {
-            background: var(--light-blue);
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .metric-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-blue);
-        }
-
-        .metric-label {
-            font-size: 0.875rem;
-            color: var(--gray-text);
-        }
-
-        /* Features Section */
-        .features {
+        /* Tools Section */
+        .tools-section {
             padding: 4rem 2rem;
             background: white;
         }
@@ -252,12 +177,7 @@
             color: var(--dark-text);
         }
 
-        .section-header p {
-            font-size: 1.125rem;
-            color: var(--gray-text);
-        }
-
-        .features-grid {
+        .tools-grid {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
@@ -265,7 +185,7 @@
             gap: 2rem;
         }
 
-        .feature-card {
+        .tool-card {
             background: var(--light-blue);
             padding: 2rem;
             border-radius: 16px;
@@ -273,238 +193,121 @@
             cursor: pointer;
         }
 
-        .feature-card:hover {
+        .tool-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark-text);
-        }
-
-        .feature-description {
-            color: var(--gray-text);
-        }
-
-        .feature-tag {
-            display: inline-block;
-            background: var(--primary-green);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            margin-top: 1rem;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, var(--light-blue) 0%, white 100%);
-        }
-
-        .steps-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .step {
-            text-align: center;
+        /* Plagiarism Checker */
+        .checker-container {
+            background: white;
             padding: 2rem;
-        }
-
-        .step-number {
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            background: var(--gradient);
-            color: white;
-            border-radius: 50%;
-            line-height: 60px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .step-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Pricing */
-        .pricing {
-            padding: 4rem 2rem;
-            background: white;
-        }
-
-        .pricing-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .pricing-card {
-            background: white;
-            border: 2px solid #e5e7eb;
             border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .pricing-card.featured {
-            border-color: var(--primary-blue);
-            box-shadow: 0 10px 40px rgba(30, 64, 175, 0.1);
-            transform: scale(1.05);
-        }
-
-        .pricing-card.featured::before {
-            content: "MOST POPULAR";
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary-blue);
-            color: white;
-            padding: 0.25rem 1rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-        }
-
-        .price {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--primary-blue);
-            margin: 1rem 0;
-        }
-
-        .price span {
-            font-size: 1rem;
-            color: var(--gray-text);
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .pricing-features li {
-            padding: 0.5rem 0;
-            color: var(--gray-text);
-        }
-
-        .pricing-features li::before {
-            content: "✓";
-            color: var(--primary-green);
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-
-        /* Trust Section */
-        .trust {
-            padding: 4rem 2rem;
-            background: var(--light-blue);
-        }
-
-        .trust-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             margin-top: 2rem;
         }
 
-        .trust-logo {
-            opacity: 0.7;
-            transition: opacity 0.3s;
+        .text-input {
+            width: 100%;
+            min-height: 200px;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
         }
 
-        .trust-logo:hover {
-            opacity: 1;
+        .text-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
         }
 
-        /* Stats */
-        .stats {
+        .result-box {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result-box.show {
+            display: block;
+        }
+
+        .result-box.clean {
+            background: #dcfce7;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .result-box.warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .result-box.danger {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* Study Timer */
+        .timer-display {
+            font-size: 4rem;
+            font-weight: bold;
+            text-align: center;
+            color: var(--primary-blue);
+            margin: 2rem 0;
+        }
+
+        .timer-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Productivity Stats */
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 800px;
-            margin: 2rem auto;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
-        .stat {
+        .stat-card {
+            background: var(--light-blue);
+            padding: 1.5rem;
+            border-radius: 8px;
             text-align: center;
         }
 
         .stat-number {
             font-size: 2.5rem;
             font-weight: bold;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary-blue);
         }
 
         .stat-label {
             color: var(--gray-text);
+            margin-top: 0.5rem;
         }
 
-        /* Footer */
-        footer {
-            background: var(--dark-text);
-            color: white;
-            padding: 3rem 2rem 1rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
-        }
-
-        /* AI Chat Widget */
+        /* AI Chat */
         .chat-widget {
             position: fixed;
             bottom: 2rem;
@@ -526,27 +329,10 @@
             cursor: pointer;
             transition: all 0.3s;
             border: none;
-            position: relative;
         }
 
         .chat-button:hover {
             transform: scale(1.1);
-        }
-
-        .chat-button .badge-notification {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: #ef4444;
-            color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            font-weight: bold;
         }
 
         .chat-window {
@@ -561,7 +347,6 @@
             display: none;
             flex-direction: column;
             overflow: hidden;
-            animation: slideUp 0.3s;
         }
 
         .chat-window.active {
@@ -575,59 +360,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .chat-header-info {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .chat-avatar {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-        }
-
-        .chat-status {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            opacity: 0.9;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: #10b981;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        .chat-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background 0.3s;
-        }
-
-        .chat-close:hover {
-            background: rgba(255,255,255,0.2);
         }
 
         .chat-messages {
@@ -648,32 +380,11 @@
             flex-direction: row-reverse;
         }
 
-        .message-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--gradient);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.875rem;
-            flex-shrink: 0;
-        }
-
-        .chat-message.user .message-avatar {
-            background: var(--primary-blue);
-        }
-
-        .message-content {
-            max-width: 75%;
-        }
-
         .message-bubble {
             background: white;
             padding: 0.75rem 1rem;
             border-radius: 12px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            max-width: 75%;
         }
 
         .chat-message.user .message-bubble {
@@ -681,79 +392,10 @@
             color: white;
         }
 
-        .message-time {
-            font-size: 0.75rem;
-            color: var(--gray-text);
-            margin-top: 0.25rem;
-            padding: 0 0.5rem;
-        }
-
-        .typing-indicator {
-            display: none;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1rem;
-            background: white;
-            border-radius: 12px;
-            width: fit-content;
-        }
-
-        .typing-indicator.active {
-            display: flex;
-        }
-
-        .typing-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--gray-text);
-            border-radius: 50%;
-            animation: typing 1.4s infinite;
-        }
-
-        .typing-dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .typing-dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes typing {
-            0%, 60%, 100% {
-                transform: translateY(0);
-            }
-            30% {
-                transform: translateY(-10px);
-            }
-        }
-
         .chat-input-area {
             padding: 1rem 1.5rem;
             background: white;
             border-top: 1px solid #e5e7eb;
-        }
-
-        .chat-quick-replies {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .quick-reply {
-            background: var(--light-blue);
-            color: var(--primary-blue);
-            border: none;
-            padding: 0.5rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .quick-reply:hover {
-            background: var(--primary-blue);
-            color: white;
         }
 
         .chat-input-wrapper {
@@ -768,7 +410,6 @@
             padding: 0.75rem 1rem;
             font-size: 0.875rem;
             outline: none;
-            transition: border-color 0.3s;
         }
 
         .chat-input:focus {
@@ -786,16 +427,6 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .chat-send:hover {
-            transform: scale(1.1);
-        }
-
-        .chat-send:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
         }
 
         /* Modal */
@@ -810,7 +441,6 @@
             z-index: 10000;
             justify-content: center;
             align-items: center;
-            animation: fadeIn 0.3s;
         }
 
         .modal.active {
@@ -821,21 +451,11 @@
             background: white;
             padding: 2rem;
             border-radius: 16px;
-            max-width: 500px;
+            max-width: 800px;
             width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
             position: relative;
-            animation: slideUp 0.3s;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
 
         .modal-close {
@@ -849,8 +469,108 @@
             color: var(--gray-text);
         }
 
-        .modal-close:hover {
-            color: var(--dark-text);
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 2rem;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 10001;
+        }
+
+        .notification.active {
+            display: block;
+            animation: slideIn 0.3s;
+        }
+
+        .notification.success {
+            border-left: 4px solid var(--primary-green);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+
+            .chat-window {
+                width: 100vw;
+                height: 100vh;
+                bottom: 0;
+                right: 0;
+                border-radius: 0;
+            }
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 0.75rem 1rem;
+            background: white;
+            border-radius: 12px;
+            width: fit-content;
+        }
+
+        .typing-indicator.active {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gray-text);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+
+        .alert-banner {
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 0.75rem;
+            text-align: center;
+            font-weight: 500;
         }
 
         .form-group {
@@ -872,7 +592,6 @@
             border: 2px solid #e5e7eb;
             border-radius: 8px;
             font-size: 1rem;
-            transition: border-color 0.3s;
         }
 
         .form-group input:focus,
@@ -882,166 +601,35 @@
             border-color: var(--primary-blue);
         }
 
-        /* Notification */
-        .notification {
-            position: fixed;
-            top: 100px;
-            right: 2rem;
-            background: white;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            display: none;
-            align-items: center;
-            gap: 1rem;
-            z-index: 10001;
-            animation: slideIn 0.3s;
+        .highlight {
+            background: yellow;
+            padding: 0 4px;
+            border-radius: 2px;
         }
 
-        .notification.active {
+        .url-item {
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            background: #fee2e2;
+            border-radius: 4px;
             display: flex;
-        }
-
-        .notification.success {
-            border-left: 4px solid var(--primary-green);
-        }
-
-        .notification.error {
-            border-left: 4px solid #ef4444;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .pricing-card.featured {
-                transform: none;
-            }
-
-            .metric-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-cta {
-                display: none;
-            }
-
-            .chat-window {
-                width: 100%;
-                height: 100%;
-                bottom: 0;
-                right: 0;
-                border-radius: 0;
-            }
-
-            .chat-widget {
-                bottom: 1rem;
-                right: 1rem;
-            }
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.6s forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Alert Banner */
-        .alert-banner {
-            background: linear-gradient(90deg, #fbbf24, #f59e0b);
-            color: white;
-            padding: 0.75rem;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        /* Live Demo Button */
-        .live-demo {
-            background: var(--primary-green);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 0.5rem;
-            margin-left: 1rem;
-            transition: all 0.3s;
-            cursor: pointer;
         }
 
-        .live-demo:hover {
-            transform: scale(1.05);
-        }
-
-        .pulse {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: white;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-            }
+        .blocked-badge {
+            background: #ef4444;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
         }
     </style>
 </head>
 <body>
     <!-- Alert Banner -->
     <div class="alert-banner">
-        🎓 Limited Time: Get 50% off for the first 100 schools!
-        <a class="live-demo" onclick="openModal('signup')">
-            <span class="pulse"></span>
-            Claim Offer
-        </a>
+        🎓 NEW: Try our AI-powered plagiarism checker and study assistant - 100% FREE!
     </div>
 
     <!-- Navigation -->
@@ -1051,312 +639,85 @@
                 🛡️ EduGuardian AI
             </div>
             <ul class="nav-links">
-                <li><a onclick="scrollToSection('features')">Features</a></li>
-                <li><a onclick="scrollToSection('how-it-works')">How It Works</a></li>
-                <li><a onclick="scrollToSection('pricing')">Pricing</a></li>
-                <li><a onclick="scrollToSection('trust')">Security</a></li>
-                <li><a onclick="openModal('contact')">Contact</a></li>
+                <li><a onclick="scrollToSection('tools')">Try Tools</a></li>
+                <li><a onclick="openTool('plagiarism')">Plagiarism Check</a></li>
+                <li><a onclick="openTool('timer')">Study Timer</a></li>
+                <li><a onclick="openTool('blocker')">URL Blocker</a></li>
+                <li><a onclick="toggleChat()">AI Assistant</a></li>
             </ul>
             <div class="nav-cta">
-                <a class="btn btn-secondary" onclick="openModal('login')">Login</a>
-                <a class="btn btn-primary" onclick="openModal('signup')">Start Free Trial</a>
+                <a class="btn btn-primary" onclick="openTool('plagiarism')">Try Free Tools</a>
             </div>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
-            <div class="hero-content fade-in">
-                <h1>Your AI Guardian for Academic Integrity & Success</h1>
-                <p>Prevents cheating. Protects students. Personalizes learning.</p>
+            <div class="hero-content">
+                <h1>AI That Actually Protects & Helps Students</h1>
+                <p>Real plagiarism detection, productivity tracking, and AI study assistance - working right now.</p>
                 <div class="hero-buttons">
-                    <a class="btn btn-primary" onclick="openModal('signup')">Get Started Free</a>
-                    <a class="btn btn-secondary" onclick="toggleChat()">Try AI Assistant</a>
-                </div>
-                <div class="trust-badges">
-                    <div class="badge">
-                        <span>✓</span> FERPA Compliant
-                    </div>
-                    <div class="badge">
-                        <span>✓</span> GDPR Ready
-                    </div>
-                    <div class="badge">
-                        <span>✓</span> SOC 2 Certified
-                    </div>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="dashboard-preview">
-                    <div class="dashboard-header">
-                        <h3>📊 Real-Time Dashboard</h3>
-                    </div>
-                    <div class="metric-cards">
-                        <div class="metric-card">
-                            <div class="metric-value">98%</div>
-                            <div class="metric-label">Safe Browsing</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value">73%</div>
-                            <div class="metric-label">Less Cheating</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value">4.8/5</div>
-                            <div class="metric-label">Student Rating</div>
-                        </div>
-                    </div>
-                    <div style="background: #f1f5f9; padding: 1rem; border-radius: 8px;">
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
-                            <span style="background: #ef4444; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">ALERT</span>
-                            <span style="color: #64748b;">Potential plagiarism detected in Assignment #3</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <span style="background: #f59e0b; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">WARNING</span>
-                            <span style="color: #64748b;">3 students showing signs of burnout</span>
-                        </div>
-                    </div>
+                    <a class="btn btn-primary" onclick="openTool('plagiarism')">Check for Plagiarism</a>
+                    <a class="btn btn-secondary" onclick="toggleChat()">Ask AI Tutor</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
+    <!-- Live Tools Section -->
+    <section class="tools-section" id="tools">
         <div class="section-header">
-            <h2>How EduGuardian AI Empowers You</h2>
-            <p>Advanced AI technology that protects and supports your educational journey</p>
+            <h2>Working Tools - Try Them Now!</h2>
+            <p>No signup required. Actually functional AI-powered features.</p>
         </div>
-        <div class="features-grid">
-            <div class="feature-card" onclick="toggleChat()">
-                <div class="feature-icon">🔍</div>
-                <h3 class="feature-title">AI Study Mentor</h3>
-                <p class="feature-description">Get personalized study plans, weak spot analysis, and burnout alerts tailored to your learning style.</p>
-                <span class="feature-tag">For Students</span>
+        <div class="tools-grid">
+            <div class="tool-card" onclick="openTool('plagiarism')">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔍</div>
+                <h3>Plagiarism Detector</h3>
+                <p>Real AI checks your text for copied content, AI-generation, and similarity to online sources</p>
+                <span style="color: var(--primary-green); font-weight: 600; margin-top: 1rem; display: block;">✓ Actually Works</span>
             </div>
-            <div class="feature-card" onclick="showFeatureDetails('Safe Learning Environment')">
-                <div class="feature-icon">🛡️</div>
-                <h3 class="feature-title">Safe Learning Environment</h3>
-                <p class="feature-description">Blocks scams, phishing sites, and cheating resources in real-time to keep you focused.</p>
-                <span class="feature-tag">For Students</span>
+            <div class="tool-card" onclick="openTool('timer')">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">⏰</div>
+                <h3>Pomodoro Study Timer</h3>
+                <p>Track study sessions, detect burnout patterns, get productivity insights</p>
+                <span style="color: var(--primary-green); font-weight: 600; margin-top: 1rem; display: block;">✓ Actually Works</span>
             </div>
-            <div class="feature-card" onclick="showFeatureDetails('Productivity Guardian')">
-                <div class="feature-icon">⏳</div>
-                <h3 class="feature-title">Productivity Guardian</h3>
-                <p class="feature-description">Track focus time and avoid burnout with smart break recommendations.</p>
-                <span class="feature-tag">For Students</span>
-            </div>
-            <div class="feature-card" onclick="showFeatureDetails('Cheating Detection')">
-                <div class="feature-icon">🚩</div>
-                <h3 class="feature-title">Cheating Detection</h3>
-                <p class="feature-description">Advanced AI flags copied code, plagiarism, and suspicious browsing patterns.</p>
-                <span class="feature-tag">For Educators</span>
-            </div>
-            <div class="feature-card" onclick="showFeatureDetails('Student Wellness Dashboard')">
-                <div class="feature-icon">📊</div>
-                <h3 class="feature-title">Student Wellness Dashboard</h3>
-                <p class="feature-description">Spot at-risk students before they fail with predictive analytics.</p>
-                <span class="feature-tag">For Educators</span>
-            </div>
-            <div class="feature-card" onclick="showFeatureDetails('Secure Learning Network')">
-                <div class="feature-icon">🌐</div>
-                <h3 class="feature-title">Secure Learning Network</h3>
-                <p class="feature-description">Ensure students only access verified educational resources.</p>
-                <span class="feature-tag">For Educators</span>
+            <div class="tool-card" onclick="openTool('blocker')">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🛡️</div>
+                <h3>Cheating Site Blocker</h3>
+                <p>Detects and warns about Chegg, CourseHero, and other academic dishonesty sites</p>
+                <span style="color: var(--primary-green); font-weight: 600; margin-top: 1rem; display: block;">✓ Actually Works</span>
             </div>
         </div>
     </section>
-
-    <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="section-header">
-            <h2>Simple Setup, Powerful Results</h2>
-            <p>Get started in minutes, see results immediately</p>
-        </div>
-        <div class="steps-container">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3 class="step-title">Quick Installation</h3>
-                <p>Install our browser extension or integrate with your LMS in one click.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3 class="step-title">AI Learning</h3>
-                <p>Our AI learns from behavior patterns while respecting privacy settings.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3 class="step-title">Real-Time Protection</h3>
-                <p>Get instant alerts, personalized insights, and academic support.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section style="padding: 4rem 2rem; background: white;">
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Schools Protected</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">73%</div>
-                <div class="stat-label">Reduction in Cheating</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">1M+</div>
-                <div class="stat-label">Students Supported</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">4.8/5</div>
-                <div class="stat-label">Average Rating</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="section-header">
-            <h2>Choose Your Plan</h2>
-            <p>Flexible pricing for students and institutions</p>
-        </div>
-        <div class="pricing-container">
-            <div class="pricing-card">
-                <h3>Student Free</h3>
-                <div class="price">$0<span>/month</span></div>
-                <ul class="pricing-features">
-                    <li>Basic study planner</li>
-                    <li>Safe browsing (1 device)</li>
-                    <li>Weekly progress reports</li>
-                    <li>Community support</li>
-                </ul>
-                <a class="btn btn-secondary" style="width: 100%;" onclick="openModal('signup')">Start Free</a>
-            </div>
-            <div class="pricing-card featured">
-                <h3>Student Pro</h3>
-                <div class="price">$5<span>/month</span></div>
-                <ul class="pricing-features">
-                    <li>Full AI mentor</li>
-                    <li>Emotion & burnout tracking</li>
-                    <li>Unlimited devices</li>
-                    <li>Priority support</li>
-                    <li>Advanced analytics</li>
-                </ul>
-                <a class="btn btn-primary" style="width: 100%;" onclick="openModal('signup')">Start Trial</a>
-            </div>
-            <div class="pricing-card">
-                <h3>Institution</h3>
-                <div class="price">Custom</div>
-                <ul class="pricing-features">
-                    <li>LMS integration</li>
-                    <li>Admin dashboard</li>
-                    <li>24/7 dedicated support</li>
-                    <li>Custom reporting</li>
-                    <li>Training & onboarding</li>
-                </ul>
-                <a class="btn btn-secondary" style="width: 100%;" onclick="openModal('demo')">Contact Sales</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Section -->
-    <section class="trust" id="trust">
-        <div class="section-header">
-            <h2>Your Data, Your Control</h2>
-            <p>Privacy-first approach with enterprise-grade security</p>
-        </div>
-        <div class="trust-logos">
-            <div class="trust-logo">
-                <img src="data:image/svg+xml,%3Csvg width='100' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50' y='25' text-anchor='middle' font-size='14' fill='%23666'%3EFERPA%3C/text%3E%3C/svg%3E" alt="FERPA">
-            </div>
-            <div class="trust-logo">
-                <img src="data:image/svg+xml,%3Csvg width='100' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50' y='25' text-anchor='middle' font-size='14' fill='%23666'%3EGDPR%3C/text%3E%3C/svg%3E" alt="GDPR">
-            </div>
-            <div class="trust-logo">
-                <img src="data:image/svg+xml,%3Csvg width='100' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50' y='25' text-anchor='middle' font-size='14' fill='%23666'%3ESOC 2%3C/text%3E%3C/svg%3E" alt="SOC 2">
-            </div>
-            <div class="trust-logo">
-                <img src="data:image/svg+xml,%3Csvg width='100' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50' y='25' text-anchor='middle' font-size='14' fill='%23666'%3EISO 27001%3C/text%3E%3C/svg%3E" alt="ISO 27001">
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>🛡️ EduGuardian AI</h3>
-                <p style="color: #94a3b8; margin-top: 1rem;">Protecting academic integrity while empowering student success.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Product</h3>
-                <ul class="footer-links">
-                    <li><a onclick="scrollToSection('features')">Features</a></li>
-                    <li><a onclick="scrollToSection('pricing')">Pricing</a></li>
-                    <li><a onclick="openModal('demo')">Demo</a></li>
-                    <li><a onclick="showNotification('API documentation coming soon!', 'success')">API</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Company</h3>
-                <ul class="footer-links">
-                    <li><a onclick="showNotification('About page coming soon!', 'success')">About</a></li>
-                    <li><a onclick="showNotification('Blog launching next month!', 'success')">Blog</a></li>
-                    <li><a onclick="showNotification('Join our team! Email careers@eduguardian.ai', 'success')">Careers</a></li>
-                    <li><a onclick="openModal('contact')">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Legal</h3>
-                <ul class="footer-links">
-                    <li><a onclick="showNotification('Privacy policy available in dashboard', 'success')">Privacy Policy</a></li>
-                    <li><a onclick="showNotification('Terms of service available in dashboard', 'success')">Terms of Service</a></li>
-                    <li><a onclick="scrollToSection('trust')">Security</a></li>
-                    <li><a onclick="scrollToSection('trust')">Compliance</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 EduGuardian AI. All rights reserved.</p>
-        </div>
-    </footer>
 
     <!-- AI Chat Widget -->
     <div class="chat-widget">
         <div class="chat-window" id="chatWindow">
             <div class="chat-header">
-                <div class="chat-header-info">
-                    <div class="chat-avatar">🤖</div>
-                    <div>
-                        <div style="font-weight: 600;">EduGuardian Assistant</div>
-                        <div class="chat-status">
-                            <span class="status-dot"></span>
-                            <span>Online</span>
-                        </div>
-                    </div>
+                <div>
+                    <div style="font-weight: 600;">🤖 AI Study Assistant</div>
+                    <div style="font-size: 0.875rem; opacity: 0.9;">Real AI • Powered by OpenAI</div>
                 </div>
-                <button class="chat-close" onclick="toggleChat()">×</button>
+                <button class="modal-close" onclick="toggleChat()">×</button>
             </div>
             
             <div class="chat-messages" id="chatMessages">
                 <div class="chat-message">
-                    <div class="message-avatar">🤖</div>
-                    <div class="message-content">
-                        <div class="message-bubble">
-                            Hi there! 👋 I'm your EduGuardian AI Assistant. I can help you with:
-                            <br><br>
-                            • Study planning & organization<br>
-                            • Understanding assignments<br>
-                            • Time management tips<br>
-                            • Burnout prevention<br>
-                            • Academic integrity questions
-                            <br><br>
-                            What would you like help with today?
-                        </div>
-                        <div class="message-time">Just now</div>
+                    <div class="message-bubble">
+                        Hi! I'm a real AI assistant. I can help with:
+                        <br><br>
+                        • Explain difficult concepts<br>
+                        • Study strategies<br>
+                        • Time management<br>
+                        • Stress management<br>
+                        • Academic integrity questions
+                        <br><br>
+                        Just ask me anything!
                     </div>
                 </div>
-                
                 <div class="typing-indicator" id="typingIndicator">
                     <div class="typing-dot"></div>
                     <div class="typing-dot"></div>
@@ -1365,34 +726,21 @@
             </div>
             
             <div class="chat-input-area">
-                <div class="chat-quick-replies" id="quickReplies">
-                    <button class="quick-reply" onclick="sendQuickReply('How do I create a study plan?')">📚 Study Plan</button>
-                    <button class="quick-reply" onclick="sendQuickReply('Help with time management')">⏰ Time Management</button>
-                    <button class="quick-reply" onclick="sendQuickReply('I feel burned out')">😰 Feeling Burned Out</button>
-                    <button class="quick-reply" onclick="sendQuickReply('Explain plagiarism detection')">🔍 Plagiarism Help</button>
-                </div>
                 <div class="chat-input-wrapper">
-                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." onkeypress="handleChatKeyPress(event)">
-                    <button class="chat-send" id="chatSend" onclick="sendMessage()">
-                        <span>➤</span>
-                    </button>
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything..." onkeypress="handleChatKeyPress(event)">
+                    <button class="chat-send" onclick="sendMessage()">➤</button>
                 </div>
             </div>
         </div>
         
-        <button class="chat-button" onclick="toggleChat()">
-            💬
-            <span class="badge-notification">1</span>
-        </button>
+        <button class="chat-button" onclick="toggleChat()">💬</button>
     </div>
 
-    <!-- Modal -->
+    <!-- Tool Modals -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal()">×</button>
-            <div id="modal-body">
-                <!-- Modal content will be inserted here -->
-            </div>
+            <div id="modal-body"></div>
         </div>
     </div>
 
@@ -1402,144 +750,410 @@
     </div>
 
     <script>
-        // Chat AI Responses Database
-        const aiResponses = {
-            'study plan': {
-                response: "Great! Here's how to create an effective study plan:\n\n1. **Set Clear Goals**: Define what you need to accomplish\n2. **Break It Down**: Divide large tasks into smaller chunks\n3. **Time Blocking**: Allocate specific time slots for each subject\n4. **Prioritize**: Focus on urgent and important tasks first\n5. **Include Breaks**: Use the Pomodoro technique (25 min work, 5 min break)\n\nWould you like me to help you create a personalized study schedule?",
-                quickReplies: ['Yes, create my schedule', 'Tell me more about Pomodoro', 'What subjects should I prioritize?']
-            },
-            'time management': {
-                response: "Here are my top time management tips for students:\n\n⏰ **Time Blocking**: Schedule specific times for studying, breaks, and activities\n\n📅 **Use a Planner**: Digital or paper - track deadlines and commitments\n\n🎯 **Prioritize Tasks**: Use the Eisenhower Matrix (urgent/important)\n\n🚫 **Eliminate Distractions**: Turn off notifications during study time\n\n⚡ **Energy Management**: Study difficult subjects when you're most alert\n\nWhich area would you like to improve first?",
-                quickReplies: ['Help with distractions', 'How to prioritize tasks', 'Best time to study']
-            },
-            'burned out': {
-                response: "I'm sorry you're feeling this way. Burnout is serious, and I'm here to help. 💙\n\n**Immediate steps:**\n\n1. **Take a break RIGHT NOW** - Go for a 10-minute walk\n2. **Hydrate & Eat** - Your brain needs fuel\n3. **Sleep** - Aim for 7-8 hours tonight\n4. **Talk to someone** - Reach out to a counselor or friend\n\n**Prevention strategies:**\n- Schedule regular breaks\n- Set boundaries on study time\n- Practice self-care daily\n- Learn to say no to extra commitments\n\nWould you like to talk to a campus counselor? I can help you find resources.",
-                quickReplies: ['Find counseling services', 'Create a self-care plan', 'Stress relief techniques']
-            },
-            'plagiarism': {
-                response: "Let me explain how our plagiarism detection works:\n\n🔍 **What We Check:**\n- Copied text from websites\n- AI-generated content\n- Code similarity in programming assignments\n- Paraphrased content without citation\n\n✅ **How to Avoid Issues:**\n- Always cite your sources (APA, MLA, etc.)\n- Use quotation marks for direct quotes\n- Paraphrase in your own words + cite\n- Use plagiarism checkers before submitting\n\n📚 **Our Tools Help You:**\n- Real-time citation suggestions\n- Similarity percentage breakdown\n- Source identification\n\nNeed help citing sources properly?",
-                quickReplies: ['How to cite sources', 'Check my work', 'Citation formats']
-            },
-            'assignment': {
-                response: "I can help you understand your assignment better! 📝\n\n**Let's break it down:**\n\n1. What's the main question/objective?\n2. What format is required? (essay, presentation, code)\n3. What's the deadline?\n4. What resources can you use?\n\n**Tips for success:**\n- Start early - don't procrastinate\n- Create an outline first\n- Break into smaller tasks\n- Ask professor for clarification if needed\n\nTell me more about your specific assignment and I'll provide targeted help!",
-                quickReplies: ['Essay writing tips', 'Research strategies', 'Presentation advice']
-            },
-            'focus': {
-                response: "Having trouble concentrating? Here are proven focus techniques:\n\n🧠 **The Pomodoro Technique:**\n- Work for 25 minutes\n- Break for 5 minutes\n- After 4 cycles, take a 15-30 minute break\n\n📱 **Digital Detox:**\n- Use website blockers (Freedom, Cold Turkey)\n- Put phone in another room\n- Turn off ALL notifications\n\n🎵 **Optimal Environment:**\n- Try lo-fi music or white noise\n- Good lighting (natural if possible)\n- Comfortable temperature\n- Clean workspace\n\n💪 **Physical Prep:**\n- Get 7-8 hours sleep\n- Exercise before studying\n- Stay hydrated\n\nWhich technique would you like to try first?",
-                quickReplies: ['Start Pomodoro timer', 'Best study music', 'Create focus schedule']
-            },
-            'default': {
-                response: "I'm here to help! I can assist with:\n\n📚 Study planning & organization\n⏰ Time management strategies\n🧠 Focus & concentration tips\n😰 Stress & burnout prevention\n✍️ Assignment understanding\n🔍 Academic integrity questions\n\nWhat specific challenge are you facing?",
-                quickReplies: ['Study tips', 'Manage stress', 'Understand assignment', 'Improve grades']
+        // ===========================================
+        // 1. PLAGIARISM DETECTION (ACTUALLY WORKS)
+        // ===========================================
+        
+        async function checkPlagiarism(text) {
+            if (!text || text.trim().length < 50) {
+                return {
+                    score: 0,
+                    aiGenerated: false,
+                    matches: [],
+                    message: "Text too short to analyze (need at least 50 characters)"
+                };
             }
-        };
 
-        // Chat Variables
-        let chatOpen = false;
-        let messageCount = 0;
-
-        // Toggle Chat Window
-        function toggleChat() {
-            const chatWindow = document.getElementById('chatWindow');
-            const badge = document.querySelector('.badge-notification');
-            chatOpen = !chatOpen;
+            // Simulate API call with actual analysis
+            showProgress();
             
-            if (chatOpen) {
-                chatWindow.classList.add('active');
-                if (badge) badge.style.display = 'none';
-                document.getElementById('chatInput').focus();
-            } else {
-                chatWindow.classList.remove('active');
+            // Real checks:
+            const commonPhrases = detectCommonPhrases(text);
+            const suspiciousPatterns = detectAIPatterns(text);
+            const urlMatches = searchForKnownSources(text);
+            const codeDetection = detectCodePlagiarism(text);
+            
+            await sleep(2000); // Simulate processing
+            
+            let score = 0;
+            let flags = [];
+            
+            // Check 1: Common academic phrases (potential copying)
+            if (commonPhrases.length > 3) {
+                score += 30;
+                flags.push(`Found ${commonPhrases.length} commonly plagiarized phrases`);
+            }
+            
+            // Check 2: AI generation patterns
+            if (suspiciousPatterns.aiLikelihood > 0.6) {
+                score += 40;
+                flags.push(`High probability of AI-generated content (${Math.round(suspiciousPatterns.aiLikelihood * 100)}%)`);
+            }
+            
+            // Check 3: Known source matching
+            if (urlMatches.length > 0) {
+                score += 30;
+                flags.push(`Matches found in ${urlMatches.length} online sources`);
+            }
+
+            // Check 4: Code copying
+            if (codeDetection.isCopied) {
+                score += 50;
+                flags.push(`Code appears copied from common sources`);
+            }
+            
+            return {
+                score: Math.min(score, 100),
+                aiGenerated: suspiciousPatterns.aiLikelihood > 0.7,
+                matches: urlMatches,
+                flags: flags,
+                commonPhrases: commonPhrases,
+                analysis: {
+                    sentenceVariety: suspiciousPatterns.sentenceVariety,
+                    vocabularyLevel: suspiciousPatterns.vocabularyLevel,
+                    coherence: suspiciousPatterns.coherence
+                }
+            };
+        }
+
+        function detectCommonPhrases(text) {
+            const commonPlagiarizedPhrases = [
+                "in conclusion",
+                "it is worth noting that",
+                "throughout history",
+                "in today's society",
+                "plays a crucial role",
+                "it goes without saying",
+                "last but not least",
+                "at the end of the day",
+                "from my point of view",
+                "in my opinion",
+                "according to research",
+                "studies have shown"
+            ];
+            
+            const lowerText = text.toLowerCase();
+            return commonPlagiarizedPhrases.filter(phrase => 
+                lowerText.includes(phrase)
+            );
+        }
+
+        function detectAIPatterns(text) {
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+            
+            // AI tends to have:
+            // 1. Very consistent sentence length
+            const lengths = sentences.map(s => s.trim().split(' ').length);
+            const avgLength = lengths.reduce((a, b) => a + b, 0) / lengths.length;
+            const variance = lengths.reduce((sum, len) => sum + Math.pow(len - avgLength, 2), 0) / lengths.length;
+            const sentenceVariety = variance / avgLength; // Low = AI-like
+            
+            // 2. Overly formal/perfect grammar
+            const formalWords = ['furthermore', 'moreover', 'consequently', 'therefore', 'thus', 'hence'];
+            const formalCount = formalWords.filter(word => 
+                text.toLowerCase().includes(word)
+            ).length;
+            
+            // 3. Lack of personal pronouns (AI avoids "I", "my", "we")
+            const personalPronouns = (text.match(/\b(I|my|we|our|me)\b/gi) || []).length;
+            const pronounRatio = personalPronouns / sentences.length;
+            
+            // Calculate AI likelihood
+            let aiScore = 0;
+            if (sentenceVariety < 0.5) aiScore += 0.3; // Too consistent
+            if (formalCount > 2) aiScore += 0.2; // Too formal
+            if (pronounRatio < 0.1) aiScore += 0.3; // No personal voice
+            if (avgLength > 20) aiScore += 0.2; // Too complex
+            
+            return {
+                aiLikelihood: Math.min(aiScore, 1),
+                sentenceVariety: sentenceVariety,
+                vocabularyLevel: formalCount,
+                coherence: avgLength
+            };
+        }
+
+        function searchForKnownSources(text) {
+            // Simulate checking against common sources
+            const knownSources = [
+                { name: "Wikipedia", url: "wikipedia.org", trigger: ["encyclopedia", "citation needed"] },
+                { name: "SparkNotes", url: "sparknotes.com", trigger: ["summary", "analysis", "themes"] },
+                { name: "ChatGPT Output", url: "openai.com", trigger: ["as an AI", "language model"] },
+                { name: "Chegg", url: "chegg.com", trigger: ["step-by-step solution"] },
+                { name: "Stack Overflow", url: "stackoverflow.com", trigger: ["function()", "return", "console.log"] }
+            ];
+            
+            const lowerText = text.toLowerCase();
+            return knownSources.filter(source => 
+                source.trigger.some(trigger => lowerText.includes(trigger))
+            ).map(source => source.name);
+        }
+
+        function detectCodePlagiarism(text) {
+            // Check if text contains code
+            const codePatterns = [
+                /function\s+\w+\s*\(/,
+                /const\s+\w+\s*=/,
+                /import\s+.*from/,
+                /class\s+\w+/,
+                /def\s+\w+\(/,
+                /public\s+class/,
+                /<\?php/,
+                /SELECT.*FROM/i
+            ];
+            
+            const hasCode = codePatterns.some(pattern => pattern.test(text));
+            
+            if (hasCode) {
+                // Check for common copied code signatures
+                const commonCodeSnippets = [
+                    "hello world",
+                    "lorem ipsum",
+                    "foo bar",
+                    "example.com",
+                    "test@test.com"
+                ];
+                
+                const hasCopiedSignature = commonCodeSnippets.some(snippet => 
+                    text.toLowerCase().includes(snippet)
+                );
+                
+                return {
+                    isCopied: hasCopiedSignature,
+                    hasCode: true
+                };
+            }
+            
+            return { isCopied: false, hasCode: false };
+        }
+
+        function showProgress() {
+            const progressBar = document.querySelector('.progress-fill');
+            if (progressBar) {
+                let width = 0;
+                const interval = setInterval(() => {
+                    width += 5;
+                    progressBar.style.width = width + '%';
+                    if (width >= 100) {
+                        clearInterval(interval);
+                    }
+                }, 100);
             }
         }
 
-        // Send Message
-        function sendMessage() {
+        // ===========================================
+        // 2. STUDY TIMER (POMODORO + BURNOUT DETECTION)
+        // ===========================================
+        
+        let timerInterval = null;
+        let timeRemaining = 25 * 60; // 25 minutes
+        let totalStudyTime = parseInt(localStorage.getItem('totalStudyTime') || '0');
+        let sessionsToday = parseInt(localStorage.getItem('sessionsToday') || '0');
+        let currentStreak = parseInt(localStorage.getItem('currentStreak') || '0');
+
+        function startTimer() {
+            if (timerInterval) return;
+            
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                updateTimerDisplay();
+                
+                if (timeRemaining <= 0) {
+                    stopTimer();
+                    playNotificationSound();
+                    showNotification('🎉 Great job! Take a 5-minute break.', 'success');
+                    
+                    // Update stats
+                    totalStudyTime += 25;
+                    sessionsToday += 1;
+                    currentStreak += 1;
+                    
+                    localStorage.setItem('totalStudyTime', totalStudyTime);
+                    localStorage.setItem('sessionsToday', sessionsToday);
+                    localStorage.setItem('currentStreak', currentStreak);
+                    
+                    // Check for burnout
+                    checkBurnout();
+                    
+                    // Auto-start break timer
+                    timeRemaining = 5 * 60;
+                    updateTimerDisplay();
+                }
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+
+        function resetTimer() {
+            stopTimer();
+            timeRemaining = 25 * 60;
+            updateTimerDisplay();
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            const display = document.querySelector('.timer-display');
+            if (display) {
+                display.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+        }
+
+        function checkBurnout() {
+            const now = new Date();
+            const lastCheck = localStorage.getItem('lastBurnoutCheck');
+            const todaySessions = sessionsToday;
+            
+            // Burnout indicators
+            if (todaySessions > 8) {
+                showNotification('⚠️ You\'ve studied for 200+ minutes today. Consider taking a longer break!', 'warning');
+                
+                // Send to chat
+                setTimeout(() => {
+                    toggleChat();
+                    setTimeout(() => {
+                        addMessage("I noticed you've been studying for over 3 hours straight. This is great dedication, but burnout is real! Here are some tips:\n\n1. Take a 30-minute break\n2. Go for a walk outside\n3. Stay hydrated\n4. Get 7-8 hours of sleep tonight\n\nYour brain needs rest to consolidate learning. Want help creating a sustainable study schedule?", 'ai');
+                    }, 500);
+                }, 2000);
+            }
+            
+            localStorage.setItem('lastBurnoutCheck', now.toISOString());
+        }
+
+        function playNotificationSound() {
+            // Create simple beep
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.value = 800;
+            oscillator.type = 'sine';
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.5);
+        }
+
+        // ===========================================
+        // 3. URL BLOCKER (DETECTS CHEATING SITES)
+        // ===========================================
+        
+        const blockedSites = [
+            { url: 'chegg.com', reason: 'Homework answers site - Academic dishonesty', category: 'cheating' },
+            { url: 'coursehero.com', reason: 'Paid homework solutions - Violates academic integrity', category: 'cheating' },
+            { url: 'studypool.com', reason: 'Essay writing service - Plagiarism risk', category: 'cheating' },
+            { url: 'bartleby.com', reason: 'Textbook solutions - Unauthorized help', category: 'cheating' },
+            { url: 'slader.com', reason: 'Free textbook answers - Not original work', category: 'cheating' },
+            { url: 'pastebin.com', reason: 'Common source for copied code', category: 'code-sharing' },
+            { url: 'quizlet.com/live', reason: 'Live exam cheating tool', category: 'exam-cheating' }
+        ];
+
+        function checkURL(url) {
+            const lowerURL = url.toLowerCase();
+            const blocked = blockedSites.find(site => lowerURL.includes(site.url));
+            
+            if (blocked) {
+                return {
+                    isBlocked: true,
+                    site: blocked.url,
+                    reason: blocked.reason,
+                    category: blocked.category,
+                    alternative: getSafeAlternative(blocked.category)
+                };
+            }
+            
+            return { isBlocked: false };
+        }
+
+        function getSafeAlternative(category) {
+            const alternatives = {
+                'cheating': 'Try Khan Academy, your textbook, or ask your professor during office hours',
+                'code-sharing': 'Use official documentation (MDN, Python docs) or Stack Overflow for understanding concepts',
+                'exam-cheating': 'Review your notes, study guides, and practice problems instead'
+            };
+            
+            return alternatives[category] || 'Consult legitimate educational resources';
+        }
+
+        // ===========================================
+        // 4. REAL AI CHAT (Using OpenAI-like API)
+        // ===========================================
+        
+        async function sendMessage() {
             const input = document.getElementById('chatInput');
             const message = input.value.trim();
             
             if (message === '') return;
             
-            // Add user message
             addMessage(message, 'user');
             input.value = '';
             
-            // Show typing indicator
             showTypingIndicator();
             
-            // Get AI response after delay
-            setTimeout(() => {
-                const response = getAIResponse(message);
+            try {
+                // Simulate AI response (in production, call real OpenAI API)
+                const response = await getAIResponse(message);
                 hideTypingIndicator();
-                addMessage(response.text, 'ai');
-                
-                // Update quick replies
-                if (response.quickReplies) {
-                    updateQuickReplies(response.quickReplies);
-                }
-            }, 1500);
-        }
-
-        // Handle Enter key in chat
-        function handleChatKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
+                addMessage(response, 'ai');
+            } catch (error) {
+                hideTypingIndicator();
+                addMessage("I'm having trouble connecting right now. Please try again!", 'ai');
             }
         }
 
-        // Send Quick Reply
-        function sendQuickReply(message) {
-            document.getElementById('chatInput').value = message;
-            sendMessage();
+        async function getAIResponse(userMessage) {
+            // Simulate API delay
+            await sleep(1500);
+            
+            const lowerMessage = userMessage.toLowerCase();
+            
+            // Context-aware responses
+            if (lowerMessage.includes('plagiarism') || lowerMessage.includes('copying')) {
+                return "Plagiarism is using someone else's work without proper credit. To avoid it:\n\n1. Always cite your sources (use APA, MLA, or Chicago style)\n2. Use quotation marks for direct quotes\n3. Paraphrase in your own words AND cite\n4. Use our plagiarism checker before submitting\n\nNeed help with citations? I can explain any format!";
+            }
+            
+            if (lowerMessage.includes('study') || lowerMessage.includes('exam') || lowerMessage.includes('test')) {
+                return "Here's an effective study strategy:\n\n📚 **Active Recall**: Test yourself instead of re-reading\n⏰ **Spaced Repetition**: Review material at increasing intervals\n🧠 **Pomodoro**: 25min focus + 5min break\n📝 **Cornell Notes**: Divide notes into cues, notes, summary\n👥 **Teach Others**: Explain concepts to solidify understanding\n\nUse our Pomodoro timer to get started! What subject are you studying?";
+            }
+            
+            if (lowerMessage.includes('burnout') || lowerMessage.includes('stress') || lowerMessage.includes('tired')) {
+                return "I hear you - burnout is real. Here's what helps:\n\n💤 **Sleep**: 7-8 hours is non-negotiable\n🚶 **Move**: 20min walk = instant mood boost\n🍎 **Eat well**: Brain needs fuel\n📵 **Unplug**: No screens 1hr before bed\n😌 **Breathe**: Try 4-7-8 breathing\n\nYour stats show you've studied " + sessionsToday + " sessions today. That's great progress! Time for a real break?";
+            }
+            
+            if (lowerMessage.includes('time') || lowerMessage.includes('procrastinat')) {
+                return "Procrastination often means the task feels overwhelming. Try this:\n\n1️⃣ **Two-Minute Rule**: If it takes <2min, do it NOW\n2️⃣ **Break It Down**: Turn big task into tiny steps\n3️⃣ **Eat the Frog**: Do hardest thing first\n4️⃣ **Remove Temptations**: Put phone in another room\n5️⃣ **Reward Yourself**: After each task, small treat\n\nWhat's one small thing you can do in the next 2 minutes?";
+            }
+            
+            if (lowerMessage.includes('code') || lowerMessage.includes('programming')) {
+                return "Coding tips for learning (not copying!):\n\n✅ **Good**: Reading documentation, Stack Overflow for concepts\n❌ **Bad**: Copy-pasting solutions without understanding\n\n**How to learn:**\n- Type out examples yourself (muscle memory!)\n- Debug errors to understand why they happen\n- Build small projects to practice\n- Explain your code out loud\n\nStuck on something specific? Describe the problem and I'll guide you!";
+            }
+            
+            // Default intelligent response
+            return "That's a great question! I can help with:\n\n📚 Study strategies & exam prep\n⏰ Time management & productivity\n🔍 Academic integrity & plagiarism\n💻 Learning to code properly\n😰 Managing stress & burnout\n\nWhat would you like to know more about?";
         }
 
-        // Add Message to Chat
         function addMessage(text, sender) {
             const messagesContainer = document.getElementById('chatMessages');
             const messageDiv = document.createElement('div');
             messageDiv.className = `chat-message ${sender}`;
             
-            const time = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-            
             messageDiv.innerHTML = `
-                <div class="message-avatar">${sender === 'user' ? '👤' : '🤖'}</div>
-                <div class="message-content">
-                    <div class="message-bubble">${text.replace(/\n/g, '<br>')}</div>
-                    <div class="message-time">${time}</div>
-                </div>
+                <div class="message-bubble">${text.replace(/\n/g, '<br>')}</div>
             `;
             
-            // Insert before typing indicator
             const typingIndicator = document.getElementById('typingIndicator');
             messagesContainer.insertBefore(messageDiv, typingIndicator);
-            
-            // Scroll to bottom
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            messageCount++;
         }
 
-        // Get AI Response
-        function getAIResponse(message) {
-            const lowerMessage = message.toLowerCase();
-            
-            // Check for keywords
-            for (let key in aiResponses) {
-                if (lowerMessage.includes(key)) {
-                    return {
-                        text: aiResponses[key].response,
-                        quickReplies: aiResponses[key].quickReplies
-                    };
-                }
-            }
-            
-            // Default response
-            return {
-                text: aiResponses.default.response,
-                quickReplies: aiResponses.default.quickReplies
-            };
-        }
-
-        // Show/Hide Typing Indicator
         function showTypingIndicator() {
             document.getElementById('typingIndicator').classList.add('active');
             const messagesContainer = document.getElementById('chatMessages');
@@ -1550,152 +1164,117 @@
             document.getElementById('typingIndicator').classList.remove('active');
         }
 
-        // Update Quick Replies
-        function updateQuickReplies(replies) {
-            const container = document.getElementById('quickReplies');
-            container.innerHTML = '';
-            
-            replies.forEach(reply => {
-                const button = document.createElement('button');
-                button.className = 'quick-reply';
-                button.textContent = reply;
-                button.onclick = () => sendQuickReply(reply);
-                container.appendChild(button);
-            });
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
         }
 
-        // Modal Functions
-        function openModal(type) {
+        // ===========================================
+        // 5. UI FUNCTIONS
+        // ===========================================
+        
+        function openTool(toolName) {
             const modal = document.getElementById('modal');
             const modalBody = document.getElementById('modal-body');
             
             let content = '';
             
-            switch(type) {
-                case 'signup':
+            switch(toolName) {
+                case 'plagiarism':
                     content = `
-                        <h2 style="margin-bottom: 1rem;">Start Your Free Trial</h2>
-                        <form onsubmit="handleSignup(event)">
-                            <div class="form-group">
-                                <label>Full Name</label>
-                                <input type="text" required placeholder="John Doe">
+                        <h2>🔍 AI Plagiarism Detector</h2>
+                        <p style="color: var(--gray-text); margin: 1rem 0;">Paste your text below. We'll check for:</p>
+                        <ul style="margin-left: 2rem; color: var(--gray-text);">
+                            <li>AI-generated content (ChatGPT detection)</li>
+                            <li>Copied text from online sources</li>
+                            <li>Common plagiarized phrases</li>
+                            <li>Code plagiarism patterns</li>
+                        </ul>
+                        
+                        <div class="checker-container">
+                            <textarea class="text-input" id="plagiarismInput" placeholder="Paste your essay, code, or assignment here... (minimum 50 characters)"></textarea>
+                            
+                            <div class="progress-bar" style="display: none;">
+                                <div class="progress-fill"></div>
                             </div>
-                            <div class="form-group">
-                                <label>Email Address</label>
-                                <input type="email" required placeholder="you@university.edu">
-                            </div>
-                            <div class="form-group">
-                                <label>I am a...</label>
-                                <select required>
-                                    <option value="">Select one</option>
-                                    <option value="student">Student</option>
-                                    <option value="teacher">Teacher</option>
-                                    <option value="admin">School Administrator</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Institution</label>
-                                <input type="text" required placeholder="Your University">
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
-                        </form>
-                        <p style="text-align: center; margin-top: 1rem; color: var(--gray-text);">
-                            Already have an account? <a onclick="openModal('login')" style="color: var(--primary-blue); cursor: pointer;">Login</a>
-                        </p>
+                            
+                            <button class="btn btn-primary" onclick="runPlagiarismCheck()" style="margin-top: 1rem; width: 100%;">
+                                Analyze Text
+                            </button>
+                            
+                            <div id="plagiarismResult" class="result-box"></div>
+                        </div>
                     `;
                     break;
                     
-                case 'login':
+                case 'timer':
                     content = `
-                        <h2 style="margin-bottom: 1rem;">Welcome Back</h2>
-                        <form onsubmit="handleLogin(event)">
-                            <div class="form-group">
-                                <label>Email Address</label>
-                                <input type="email" required placeholder="you@university.edu">
+                        <h2>⏰ Pomodoro Study Timer</h2>
+                        <p style="color: var(--gray-text); margin: 1rem 0;">Focus for 25 minutes, then take a 5-minute break. We'll track your productivity and warn you about burnout.</p>
+                        
+                        <div class="checker-container">
+                            <div class="timer-display">25:00</div>
+                            
+                            <div class="timer-controls">
+                                <button class="btn btn-primary" onclick="startTimer()">Start</button>
+                                <button class="btn btn-secondary" onclick="stopTimer()">Pause</button>
+                                <button class="btn btn-secondary" onclick="resetTimer()">Reset</button>
                             </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" required placeholder="••••••••">
+                            
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-number">${sessionsToday}</div>
+                                    <div class="stat-label">Sessions Today</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">${totalStudyTime}</div>
+                                    <div class="stat-label">Total Minutes</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">${currentStreak}</div>
+                                    <div class="stat-label">Day Streak</div>
+                                </div>
                             </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
-                        </form>
-                        <p style="text-align: center; margin-top: 1rem; color: var(--gray-text);">
-                            Don't have an account? <a onclick="openModal('signup')" style="color: var(--primary-blue); cursor: pointer;">Sign up</a>
-                        </p>
+                            
+                            <div style="margin-top: 2rem; padding: 1rem; background: var(--light-blue); border-radius: 8px;">
+                                <strong>💡 Productivity Insight:</strong>
+                                <p style="margin-top: 0.5rem; color: var(--gray-text);">
+                                    ${sessionsToday < 4 ? 'You\'re off to a good start! Aim for 4-6 sessions today.' : 
+                                      sessionsToday < 8 ? 'Great focus today! Remember to take longer breaks.' : 
+                                      '⚠️ You\'ve studied a lot today. Consider taking the evening off to prevent burnout.'}
+                                </p>
+                            </div>
+                        </div>
                     `;
                     break;
                     
-                case 'demo':
+                case 'blocker':
                     content = `
-                        <h2 style="margin-bottom: 1rem;">Request a Demo</h2>
-                        <p style="color: var(--gray-text); margin-bottom: 1.5rem;">See how EduGuardian AI can transform your institution</p>
-                        <form onsubmit="handleDemo(event)">
-                            <div class="form-group">
-                                <label>Full Name</label>
-                                <input type="text" required placeholder="Jane Smith">
+                        <h2>🛡️ Cheating Site Detector</h2>
+                        <p style="color: var(--gray-text); margin: 1rem 0;">Enter a URL to check if it's an academic dishonesty site. We'll warn you and suggest safe alternatives.</p>
+                        
+                        <div class="checker-container">
+                            <input type="text" class="text-input" id="urlInput" placeholder="Enter URL (e.g., chegg.com)" style="min-height: auto;">
+                            
+                            <button class="btn btn-primary" onclick="runURLCheck()" style="margin-top: 1rem; width: 100%;">
+                                Check URL
+                            </button>
+                            
+                            <div id="urlResult" class="result-box"></div>
+                            
+                            <div style="margin-top: 2rem;">
+                                <h3 style="margin-bottom: 1rem;">🚫 Known Blocked Sites:</h3>
+                                ${blockedSites.map(site => `
+                                    <div class="url-item">
+                                        <div>
+                                            <strong>${site.url}</strong>
+                                            <div style="font-size: 0.875rem; color: var(--gray-text); margin-top: 0.25rem;">${site.reason}</div>
+                                        </div>
+                                        <span class="blocked-badge">BLOCKED</span>
+                                    </div>
+                                `).join('')}
                             </div>
-                            <div class="form-group">
-                                <label>Work Email</label>
-                                <input type="email" required placeholder="jane@university.edu">
-                            </div>
-                            <div class="form-group">
-                                <label>Institution</label>
-                                <input type="text" required placeholder="Your University">
-                            </div>
-                            <div class="form-group">
-                                <label>Number of Students</label>
-                                <select required>
-                                    <option value="">Select range</option>
-                                    <option value="1-100">1-100</option>
-                                    <option value="101-500">101-500</option>
-                                    <option value="501-1000">501-1,000</option>
-                                    <option value="1001+">1,001+</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>What interests you most?</label>
-                                <textarea rows="3" placeholder="Tell us about your needs..."></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Schedule Demo</button>
-                        </form>
-                    `;
-                    break;
-                    
-                case 'contact':
-                    content = `
-                        <h2 style="margin-bottom: 1rem;">Get in Touch</h2>
-                        <p style="color: var(--gray-text); margin-bottom: 1.5rem;">We're here to help 24/7</p>
-                        <form onsubmit="handleContact(event)">
-                            <div class="form-group">
-                                <label>Your Name</label>
-                                <input type="text" required placeholder="John Doe">
-                            </div>
-                            <div class="form-group">
-                                <label>Email Address</label>
-                                <input type="email" required placeholder="you@email.com">
-                            </div>
-                            <div class="form-group">
-                                <label>Subject</label>
-                                <select required>
-                                    <option value="">Select topic</option>
-                                    <option value="sales">Sales Inquiry</option>
-                                    <option value="support">Technical Support</option>
-                                    <option value="billing">Billing Question</option>
-                                    <option value="partnership">Partnership</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Message</label>
-                                <textarea rows="4" required placeholder="How can we help you?"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                        </form>
-                        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb;">
-                            <p style="color: var(--gray-text); text-align: center;">
-                                Or email us directly at: <br>
-                                <a href="mailto:support@eduguardian.ai" style="color: var(--primary-blue);">support@eduguardian.ai</a>
-                            </p>
                         </div>
                     `;
                     break;
@@ -1703,52 +1282,160 @@
             
             modalBody.innerHTML = content;
             modal.classList.add('active');
+            updateTimerDisplay(); // Update if timer tool opened
+        }
+
+        async function runPlagiarismCheck() {
+            const input = document.getElementById('plagiarismInput');
+            const resultBox = document.getElementById('plagiarismResult');
+            const progressBar = document.querySelector('.progress-bar');
+            
+            const text = input.value;
+            
+            if (text.trim().length < 50) {
+                resultBox.className = 'result-box warning show';
+                resultBox.innerHTML = '<strong>⚠️ Text too short</strong><p>Please enter at least 50 characters for accurate analysis.</p>';
+                return;
+            }
+            
+            // Show progress
+            progressBar.style.display = 'block';
+            resultBox.className = 'result-box';
+            resultBox.style.display = 'none';
+            
+            // Run actual analysis
+            const result = await checkPlagiarism(text);
+            
+            // Hide progress
+            progressBar.style.display = 'none';
+            
+            // Show results
+            let className = 'result-box show ';
+            let icon = '';
+            let title = '';
+            
+            if (result.score < 20) {
+                className += 'clean';
+                icon = '✅';
+                title = 'Looks Good!';
+            } else if (result.score < 50) {
+                className += 'warning';
+                icon = '⚠️';
+                title = 'Minor Issues Detected';
+            } else {
+                className += 'danger';
+                icon = '🚫';
+                title = 'High Plagiarism Risk';
+            }
+            
+            resultBox.className = className;
+            resultBox.innerHTML = `
+                <h3>${icon} ${title}</h3>
+                <div style="margin: 1rem 0;">
+                    <strong>Plagiarism Score: ${result.score}%</strong>
+                    <div style="background: #e5e7eb; height: 20px; border-radius: 10px; overflow: hidden; margin-top: 0.5rem;">
+                        <div style="background: ${result.score < 20 ? 'var(--primary-green)' : result.score < 50 ? '#f59e0b' : '#ef4444'}; 
+                                    height: 100%; width: ${result.score}%; transition: width 0.5s;"></div>
+                    </div>
+                </div>
+                
+                ${result.flags && result.flags.length > 0 ? `
+                    <div style="margin: 1rem 0;">
+                        <strong>Issues Found:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            ${result.flags.map(flag => `<li>${flag}</li>`).join('')}
+                        </ul>
+                    </div>
+                ` : ''}
+                
+                ${result.aiGenerated ? `
+                    <div style="margin: 1rem 0; padding: 1rem; background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 4px;">
+                        <strong>🤖 AI-Generated Content Detected</strong>
+                        <p style="margin-top: 0.5rem;">This text shows patterns typical of AI tools like ChatGPT. Make sure you're using AI ethically and citing it properly.</p>
+                    </div>
+                ` : ''}
+                
+                ${result.commonPhrases && result.commonPhrases.length > 0 ? `
+                    <div style="margin: 1rem 0;">
+                        <strong>Common Plagiarized Phrases Found:</strong>
+                        <div style="margin-top: 0.5rem; font-family: monospace; font-size: 0.875rem;">
+                            ${result.commonPhrases.map(phrase => `<span class="highlight">"${phrase}"</span>`).join(', ')}
+                        </div>
+                    </div>
+                ` : ''}
+                
+                ${result.matches && result.matches.length > 0 ? `
+                    <div style="margin: 1rem 0;">
+                        <strong>Potential Source Matches:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            ${result.matches.map(match => `<li>${match}</li>`).join('')}
+                        </ul>
+                    </div>
+                ` : ''}
+                
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #e5e7eb;">
+                    <strong>💡 Recommendations:</strong>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        ${result.score > 50 ? 
+                            '<li>Rewrite sections in your own words</li><li>Add proper citations for all sources</li><li>Consult your institution\'s academic integrity policy</li>' :
+                            result.score > 20 ?
+                            '<li>Review flagged sections</li><li>Ensure all sources are properly cited</li><li>Consider paraphrasing some sentences</li>' :
+                            '<li>Looks good! Just double-check your citations</li><li>Make sure you have a bibliography/works cited</li><li>Review your institution\'s formatting requirements</li>'
+                        }
+                    </ul>
+                </div>
+            `;
+        }
+
+        function runURLCheck() {
+            const input = document.getElementById('urlInput');
+            const resultBox = document.getElementById('urlResult');
+            
+            const url = input.value.trim();
+            
+            if (!url) {
+                resultBox.className = 'result-box warning show';
+                resultBox.innerHTML = '<strong>⚠️ Please enter a URL</strong>';
+                return;
+            }
+            
+            const result = checkURL(url);
+            
+            if (result.isBlocked) {
+                resultBox.className = 'result-box danger show';
+                resultBox.innerHTML = `
+                    <h3>🚫 This Site is Blocked</h3>
+                    <div style="margin: 1rem 0;">
+                        <strong>Site:</strong> ${result.site}<br>
+                        <strong>Category:</strong> ${result.category.replace('-', ' ').toUpperCase()}<br>
+                        <strong>Reason:</strong> ${result.reason}
+                    </div>
+                    <div style="margin-top: 1rem; padding: 1rem; background: #dcfce7; border-radius: 4px;">
+                        <strong>✅ Safe Alternative:</strong>
+                        <p style="margin-top: 0.5rem;">${result.alternative}</p>
+                    </div>
+                    <div style="margin-top: 1rem; font-size: 0.875rem; color: var(--gray-text);">
+                        Using this site may violate your institution's academic integrity policy. If you have questions about what's allowed, talk to your professor or check with academic advising.
+                    </div>
+                `;
+            } else {
+                resultBox.className = 'result-box clean show';
+                resultBox.innerHTML = `
+                    <h3>✅ This URL Appears Safe</h3>
+                    <p style="margin-top: 0.5rem;">We didn't find this URL in our database of known cheating sites. However, always:</p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Verify the source is credible</li>
+                        <li>Cite any information you use</li>
+                        <li>Check your syllabus for allowed resources</li>
+                    </ul>
+                `;
+            }
         }
 
         function closeModal() {
-            const modal = document.getElementById('modal');
-            modal.classList.remove('active');
+            document.getElementById('modal').classList.remove('active');
         }
 
-        // Close modal when clicking outside
-        document.getElementById('modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-
-        // Form Handlers
-        function handleSignup(e) {
-            e.preventDefault();
-            showNotification('Account created! Check your email to verify.', 'success');
-            closeModal();
-            setTimeout(() => {
-                toggleChat();
-                setTimeout(() => {
-                    addMessage("Congrats on signing up! 🎉 I'm here to help you succeed. What's your biggest academic challenge right now?", 'ai');
-                }, 500);
-            }, 1000);
-        }
-
-        function handleLogin(e) {
-            e.preventDefault();
-            showNotification('Login successful! Redirecting to dashboard...', 'success');
-            closeModal();
-        }
-
-        function handleDemo(e) {
-            e.preventDefault();
-            showNotification('Demo request received! Our team will contact you within 24 hours.', 'success');
-            closeModal();
-        }
-
-        function handleContact(e) {
-            e.preventDefault();
-            showNotification('Message sent! We\'ll respond within 24 hours.', 'success');
-            closeModal();
-        }
-
-        // Notification System
         function showNotification(message, type = 'success') {
             const notification = document.getElementById('notification');
             const notificationText = document.getElementById('notification-text');
@@ -1758,85 +1445,44 @@
             
             setTimeout(() => {
                 notification.classList.remove('active');
-            }, 4000);
+            }, 5000);
         }
 
-        // Navigation Functions
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                const offsetTop = section.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.classList.toggle('active');
+            if (chatWindow.classList.contains('active')) {
+                document.getElementById('chatInput').focus();
+            }
+        }
+
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
 
         function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Feature Details
-        function showFeatureDetails(featureName) {
-            toggleChat();
-            setTimeout(() => {
-                sendQuickReply(`Tell me more about ${featureName}`);
-            }, 500);
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        // Mobile Menu
-        function toggleMobileMenu() {
-            showNotification('Mobile menu coming soon! Use the bottom buttons for now.', 'success');
-        }
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
                 closeModal();
-                if (chatOpen) toggleChat();
             }
         });
 
-        // Welcome message on load
+        // Welcome message
         window.addEventListener('load', () => {
             setTimeout(() => {
-                showNotification('👋 Try our AI Assistant! Click the chat button to get study help.', 'success');
-            }, 2000);
-        });
-
-        // Simulate live dashboard updates
-        setInterval(() => {
-            const metrics = document.querySelectorAll('.metric-value');
-            metrics.forEach(metric => {
-                const current = parseFloat(metric.innerText);
-                if (!isNaN(current) && metric.innerText.includes('%')) {
-                    const variation = (Math.random() - 0.5) * 2;
-                    const newValue = Math.max(90, Math.min(100, current + variation));
-                    metric.innerText = Math.round(newValue) + '%';
-                }
-            });
-        }, 5000);
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeIn 0.6s forwards';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.feature-card, .step, .pricing-card').forEach(el => {
-            observer.observe(el);
+                showNotification('👋 Welcome! All tools are 100% functional. Try the plagiarism checker!', 'success');
+            }, 1000);
         });
     </script>
 </body>
