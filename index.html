@@ -1,8 +1,3 @@
-Great! 🎉 Let's fix those button issues. I'll create an **updated version** with **fully functional buttons** and interactive features.
-
-Here's the **improved code** with working buttons:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -509,11 +504,15 @@ Here's the **improved code** with working buttons:
             color: #94a3b8;
         }
 
-        /* Floating Action Button */
-        .chat-button {
+        /* AI Chat Widget */
+        .chat-widget {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
+            z-index: 9999;
+        }
+
+        .chat-button {
             width: 60px;
             height: 60px;
             background: var(--gradient);
@@ -526,12 +525,277 @@ Here's the **improved code** with working buttons:
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             cursor: pointer;
             transition: all 0.3s;
-            z-index: 999;
             border: none;
+            position: relative;
         }
 
         .chat-button:hover {
             transform: scale(1.1);
+        }
+
+        .chat-button .badge-notification {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #ef4444;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .chat-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 380px;
+            height: 600px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.3s;
+        }
+
+        .chat-window.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .chat-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .chat-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            background: #f8fafc;
+        }
+
+        .chat-message {
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 0.75rem;
+            animation: fadeIn 0.3s;
+        }
+
+        .chat-message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .chat-message.user .message-avatar {
+            background: var(--primary-blue);
+        }
+
+        .message-content {
+            max-width: 75%;
+        }
+
+        .message-bubble {
+            background: white;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .chat-message.user .message-bubble {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            color: var(--gray-text);
+            margin-top: 0.25rem;
+            padding: 0 0.5rem;
+        }
+
+        .typing-indicator {
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: white;
+            border-radius: 12px;
+            width: fit-content;
+        }
+
+        .typing-indicator.active {
+            display: flex;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gray-text);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .chat-input-area {
+            padding: 1rem 1.5rem;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .chat-quick-replies {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .quick-reply {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            border: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quick-reply:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            border: 2px solid #e5e7eb;
+            border-radius: 24px;
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .chat-input:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .chat-send {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .chat-send:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-send:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         /* Modal */
@@ -691,6 +955,19 @@ Here's the **improved code** with working buttons:
             .nav-cta {
                 display: none;
             }
+
+            .chat-window {
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                right: 0;
+                border-radius: 0;
+            }
+
+            .chat-widget {
+                bottom: 1rem;
+                right: 1rem;
+            }
         }
 
         /* Animations */
@@ -796,7 +1073,7 @@ Here's the **improved code** with working buttons:
                 <p>Prevents cheating. Protects students. Personalizes learning.</p>
                 <div class="hero-buttons">
                     <a class="btn btn-primary" onclick="openModal('signup')">Get Started Free</a>
-                    <a class="btn btn-secondary" onclick="openModal('demo')">Request Demo</a>
+                    <a class="btn btn-secondary" onclick="toggleChat()">Try AI Assistant</a>
                 </div>
                 <div class="trust-badges">
                     <div class="badge">
@@ -851,7 +1128,7 @@ Here's the **improved code** with working buttons:
             <p>Advanced AI technology that protects and supports your educational journey</p>
         </div>
         <div class="features-grid">
-            <div class="feature-card" onclick="showFeatureDetails('AI Study Mentor')">
+            <div class="feature-card" onclick="toggleChat()">
                 <div class="feature-icon">🔍</div>
                 <h3 class="feature-title">AI Study Mentor</h3>
                 <p class="feature-description">Get personalized study plans, weak spot analysis, and burnout alerts tailored to your learning style.</p>
@@ -1044,10 +1321,70 @@ Here's the **improved code** with working buttons:
         </div>
     </footer>
 
-    <!-- Chat Button -->
-    <button class="chat-button" onclick="openModal('contact')">
-        💬
-    </button>
+    <!-- AI Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <div class="chat-avatar">🤖</div>
+                    <div>
+                        <div style="font-weight: 600;">EduGuardian Assistant</div>
+                        <div class="chat-status">
+                            <span class="status-dot"></span>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="chat-close" onclick="toggleChat()">×</button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            Hi there! 👋 I'm your EduGuardian AI Assistant. I can help you with:
+                            <br><br>
+                            • Study planning & organization<br>
+                            • Understanding assignments<br>
+                            • Time management tips<br>
+                            • Burnout prevention<br>
+                            • Academic integrity questions
+                            <br><br>
+                            What would you like help with today?
+                        </div>
+                        <div class="message-time">Just now</div>
+                    </div>
+                </div>
+                
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <div class="chat-quick-replies" id="quickReplies">
+                    <button class="quick-reply" onclick="sendQuickReply('How do I create a study plan?')">📚 Study Plan</button>
+                    <button class="quick-reply" onclick="sendQuickReply('Help with time management')">⏰ Time Management</button>
+                    <button class="quick-reply" onclick="sendQuickReply('I feel burned out')">😰 Feeling Burned Out</button>
+                    <button class="quick-reply" onclick="sendQuickReply('Explain plagiarism detection')">🔍 Plagiarism Help</button>
+                </div>
+                <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." onkeypress="handleChatKeyPress(event)">
+                    <button class="chat-send" id="chatSend" onclick="sendMessage()">
+                        <span>➤</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <button class="chat-button" onclick="toggleChat()">
+            💬
+            <span class="badge-notification">1</span>
+        </button>
+    </div>
 
     <!-- Modal -->
     <div id="modal" class="modal">
@@ -1065,6 +1402,168 @@ Here's the **improved code** with working buttons:
     </div>
 
     <script>
+        // Chat AI Responses Database
+        const aiResponses = {
+            'study plan': {
+                response: "Great! Here's how to create an effective study plan:\n\n1. **Set Clear Goals**: Define what you need to accomplish\n2. **Break It Down**: Divide large tasks into smaller chunks\n3. **Time Blocking**: Allocate specific time slots for each subject\n4. **Prioritize**: Focus on urgent and important tasks first\n5. **Include Breaks**: Use the Pomodoro technique (25 min work, 5 min break)\n\nWould you like me to help you create a personalized study schedule?",
+                quickReplies: ['Yes, create my schedule', 'Tell me more about Pomodoro', 'What subjects should I prioritize?']
+            },
+            'time management': {
+                response: "Here are my top time management tips for students:\n\n⏰ **Time Blocking**: Schedule specific times for studying, breaks, and activities\n\n📅 **Use a Planner**: Digital or paper - track deadlines and commitments\n\n🎯 **Prioritize Tasks**: Use the Eisenhower Matrix (urgent/important)\n\n🚫 **Eliminate Distractions**: Turn off notifications during study time\n\n⚡ **Energy Management**: Study difficult subjects when you're most alert\n\nWhich area would you like to improve first?",
+                quickReplies: ['Help with distractions', 'How to prioritize tasks', 'Best time to study']
+            },
+            'burned out': {
+                response: "I'm sorry you're feeling this way. Burnout is serious, and I'm here to help. 💙\n\n**Immediate steps:**\n\n1. **Take a break RIGHT NOW** - Go for a 10-minute walk\n2. **Hydrate & Eat** - Your brain needs fuel\n3. **Sleep** - Aim for 7-8 hours tonight\n4. **Talk to someone** - Reach out to a counselor or friend\n\n**Prevention strategies:**\n- Schedule regular breaks\n- Set boundaries on study time\n- Practice self-care daily\n- Learn to say no to extra commitments\n\nWould you like to talk to a campus counselor? I can help you find resources.",
+                quickReplies: ['Find counseling services', 'Create a self-care plan', 'Stress relief techniques']
+            },
+            'plagiarism': {
+                response: "Let me explain how our plagiarism detection works:\n\n🔍 **What We Check:**\n- Copied text from websites\n- AI-generated content\n- Code similarity in programming assignments\n- Paraphrased content without citation\n\n✅ **How to Avoid Issues:**\n- Always cite your sources (APA, MLA, etc.)\n- Use quotation marks for direct quotes\n- Paraphrase in your own words + cite\n- Use plagiarism checkers before submitting\n\n📚 **Our Tools Help You:**\n- Real-time citation suggestions\n- Similarity percentage breakdown\n- Source identification\n\nNeed help citing sources properly?",
+                quickReplies: ['How to cite sources', 'Check my work', 'Citation formats']
+            },
+            'assignment': {
+                response: "I can help you understand your assignment better! 📝\n\n**Let's break it down:**\n\n1. What's the main question/objective?\n2. What format is required? (essay, presentation, code)\n3. What's the deadline?\n4. What resources can you use?\n\n**Tips for success:**\n- Start early - don't procrastinate\n- Create an outline first\n- Break into smaller tasks\n- Ask professor for clarification if needed\n\nTell me more about your specific assignment and I'll provide targeted help!",
+                quickReplies: ['Essay writing tips', 'Research strategies', 'Presentation advice']
+            },
+            'focus': {
+                response: "Having trouble concentrating? Here are proven focus techniques:\n\n🧠 **The Pomodoro Technique:**\n- Work for 25 minutes\n- Break for 5 minutes\n- After 4 cycles, take a 15-30 minute break\n\n📱 **Digital Detox:**\n- Use website blockers (Freedom, Cold Turkey)\n- Put phone in another room\n- Turn off ALL notifications\n\n🎵 **Optimal Environment:**\n- Try lo-fi music or white noise\n- Good lighting (natural if possible)\n- Comfortable temperature\n- Clean workspace\n\n💪 **Physical Prep:**\n- Get 7-8 hours sleep\n- Exercise before studying\n- Stay hydrated\n\nWhich technique would you like to try first?",
+                quickReplies: ['Start Pomodoro timer', 'Best study music', 'Create focus schedule']
+            },
+            'default': {
+                response: "I'm here to help! I can assist with:\n\n📚 Study planning & organization\n⏰ Time management strategies\n🧠 Focus & concentration tips\n😰 Stress & burnout prevention\n✍️ Assignment understanding\n🔍 Academic integrity questions\n\nWhat specific challenge are you facing?",
+                quickReplies: ['Study tips', 'Manage stress', 'Understand assignment', 'Improve grades']
+            }
+        };
+
+        // Chat Variables
+        let chatOpen = false;
+        let messageCount = 0;
+
+        // Toggle Chat Window
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            const badge = document.querySelector('.badge-notification');
+            chatOpen = !chatOpen;
+            
+            if (chatOpen) {
+                chatWindow.classList.add('active');
+                if (badge) badge.style.display = 'none';
+                document.getElementById('chatInput').focus();
+            } else {
+                chatWindow.classList.remove('active');
+            }
+        }
+
+        // Send Message
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            // Add user message
+            addMessage(message, 'user');
+            input.value = '';
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            // Get AI response after delay
+            setTimeout(() => {
+                const response = getAIResponse(message);
+                hideTypingIndicator();
+                addMessage(response.text, 'ai');
+                
+                // Update quick replies
+                if (response.quickReplies) {
+                    updateQuickReplies(response.quickReplies);
+                }
+            }, 1500);
+        }
+
+        // Handle Enter key in chat
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // Send Quick Reply
+        function sendQuickReply(message) {
+            document.getElementById('chatInput').value = message;
+            sendMessage();
+        }
+
+        // Add Message to Chat
+        function addMessage(text, sender) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender}`;
+            
+            const time = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${sender === 'user' ? '👤' : '🤖'}</div>
+                <div class="message-content">
+                    <div class="message-bubble">${text.replace(/\n/g, '<br>')}</div>
+                    <div class="message-time">${time}</div>
+                </div>
+            `;
+            
+            // Insert before typing indicator
+            const typingIndicator = document.getElementById('typingIndicator');
+            messagesContainer.insertBefore(messageDiv, typingIndicator);
+            
+            // Scroll to bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            messageCount++;
+        }
+
+        // Get AI Response
+        function getAIResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            // Check for keywords
+            for (let key in aiResponses) {
+                if (lowerMessage.includes(key)) {
+                    return {
+                        text: aiResponses[key].response,
+                        quickReplies: aiResponses[key].quickReplies
+                    };
+                }
+            }
+            
+            // Default response
+            return {
+                text: aiResponses.default.response,
+                quickReplies: aiResponses.default.quickReplies
+            };
+        }
+
+        // Show/Hide Typing Indicator
+        function showTypingIndicator() {
+            document.getElementById('typingIndicator').classList.add('active');
+            const messagesContainer = document.getElementById('chatMessages');
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            document.getElementById('typingIndicator').classList.remove('active');
+        }
+
+        // Update Quick Replies
+        function updateQuickReplies(replies) {
+            const container = document.getElementById('quickReplies');
+            container.innerHTML = '';
+            
+            replies.forEach(reply => {
+                const button = document.createElement('button');
+                button.className = 'quick-reply';
+                button.textContent = reply;
+                button.onclick = () => sendQuickReply(reply);
+                container.appendChild(button);
+            });
+        }
+
         // Modal Functions
         function openModal(type) {
             const modal = document.getElementById('modal');
@@ -1223,6 +1722,12 @@ Here's the **improved code** with working buttons:
             e.preventDefault();
             showNotification('Account created! Check your email to verify.', 'success');
             closeModal();
+            setTimeout(() => {
+                toggleChat();
+                setTimeout(() => {
+                    addMessage("Congrats on signing up! 🎉 I'm here to help you succeed. What's your biggest academic challenge right now?", 'ai');
+                }, 500);
+            }, 1000);
         }
 
         function handleLogin(e) {
@@ -1260,7 +1765,7 @@ Here's the **improved code** with working buttons:
         function scrollToSection(sectionId) {
             const section = document.getElementById(sectionId);
             if (section) {
-                const offsetTop = section.offsetTop - 80; // Account for fixed nav
+                const offsetTop = section.offsetTop - 80;
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
@@ -1277,7 +1782,10 @@ Here's the **improved code** with working buttons:
 
         // Feature Details
         function showFeatureDetails(featureName) {
-            showNotification(`Learn more about "${featureName}" in our documentation!`, 'success');
+            toggleChat();
+            setTimeout(() => {
+                sendQuickReply(`Tell me more about ${featureName}`);
+            }, 500);
         }
 
         // Mobile Menu
@@ -1285,14 +1793,33 @@ Here's the **improved code** with working buttons:
             showNotification('Mobile menu coming soon! Use the bottom buttons for now.', 'success');
         }
 
-        // Smooth scrolling for all anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = this.getAttribute('href').substring(1);
-                scrollToSection(target);
-            });
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+                if (chatOpen) toggleChat();
+            }
         });
+
+        // Welcome message on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                showNotification('👋 Try our AI Assistant! Click the chat button to get study help.', 'success');
+            }, 2000);
+        });
+
+        // Simulate live dashboard updates
+        setInterval(() => {
+            const metrics = document.querySelectorAll('.metric-value');
+            metrics.forEach(metric => {
+                const current = parseFloat(metric.innerText);
+                if (!isNaN(current) && metric.innerText.includes('%')) {
+                    const variation = (Math.random() - 0.5) * 2;
+                    const newValue = Math.max(90, Math.min(100, current + variation));
+                    metric.innerText = Math.round(newValue) + '%';
+                }
+            });
+        }, 5000);
 
         // Animate elements on scroll
         const observerOptions = {
@@ -1308,39 +1835,11 @@ Here's the **improved code** with working buttons:
             });
         }, observerOptions);
 
-        // Observe all feature cards and sections
         document.querySelectorAll('.feature-card, .step, .pricing-card').forEach(el => {
             observer.observe(el);
         });
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
-            // ESC to close modal
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
-
-        // Welcome message on load
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                showNotification('👋 Welcome to EduGuardian AI! Scroll down to explore our features.', 'success');
-            }, 1000);
-        });
-
-        // Simulate live dashboard updates
-        setInterval(() => {
-            const metrics = document.querySelectorAll('.metric-value');
-            metrics.forEach(metric => {
-                const current = parseFloat(metric.innerText);
-                if (!isNaN(current) && metric.innerText.includes('%')) {
-                    const variation = (Math.random() - 0.5) * 2;
-                    const newValue = Math.max(90, Math.min(100, current + variation));
-                    metric.innerText = Math.round(newValue) + '%';
-                }
-            });
-        }, 5000);
     </script>
 </body>
 </html>
 ```
+
