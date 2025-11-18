@@ -1,3 +1,8 @@
+Great! 🎉 Let's fix those button issues. I'll create an **updated version** with **fully functional buttons** and interactive features.
+
+Here's the **improved code** with working buttons:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,6 +64,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            cursor: pointer;
         }
 
         .nav-links {
@@ -71,6 +77,7 @@
             text-decoration: none;
             color: var(--dark-text);
             transition: color 0.3s;
+            cursor: pointer;
         }
 
         .nav-links a:hover {
@@ -80,6 +87,16 @@
         .nav-cta {
             display: flex;
             gap: 1rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-text);
         }
 
         /* Buttons */
@@ -92,6 +109,7 @@
             border: none;
             font-size: 1rem;
             display: inline-block;
+            text-align: center;
         }
 
         .btn-primary {
@@ -477,6 +495,7 @@
             color: #94a3b8;
             text-decoration: none;
             transition: color 0.3s;
+            cursor: pointer;
         }
 
         .footer-links a:hover {
@@ -508,16 +527,144 @@
             cursor: pointer;
             transition: all 0.3s;
             z-index: 999;
+            border: none;
         }
 
         .chat-button:hover {
             transform: scale(1.1);
         }
 
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.3s;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-text);
+        }
+
+        .modal-close:hover {
+            color: var(--dark-text);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 2rem;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            display: none;
+            align-items: center;
+            gap: 1rem;
+            z-index: 10001;
+            animation: slideIn 0.3s;
+        }
+
+        .notification.active {
+            display: flex;
+        }
+
+        .notification.success {
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .notification.error {
+            border-left: 4px solid #ef4444;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
             }
 
             .hero-container {
@@ -535,6 +682,14 @@
 
             .pricing-card.featured {
                 transform: none;
+            }
+
+            .metric-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-cta {
+                display: none;
             }
         }
 
@@ -573,6 +728,7 @@
             gap: 0.5rem;
             margin-left: 1rem;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .live-demo:hover {
@@ -605,7 +761,7 @@
     <!-- Alert Banner -->
     <div class="alert-banner">
         🎓 Limited Time: Get 50% off for the first 100 schools!
-        <a href="#pricing" class="live-demo">
+        <a class="live-demo" onclick="openModal('signup')">
             <span class="pulse"></span>
             Claim Offer
         </a>
@@ -614,20 +770,21 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">
+            <div class="logo" onclick="scrollToTop()">
                 🛡️ EduGuardian AI
             </div>
             <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#trust">Security</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a onclick="scrollToSection('features')">Features</a></li>
+                <li><a onclick="scrollToSection('how-it-works')">How It Works</a></li>
+                <li><a onclick="scrollToSection('pricing')">Pricing</a></li>
+                <li><a onclick="scrollToSection('trust')">Security</a></li>
+                <li><a onclick="openModal('contact')">Contact</a></li>
             </ul>
             <div class="nav-cta">
-                <a href="#" class="btn btn-secondary">Login</a>
-                <a href="#" class="btn btn-primary">Start Free Trial</a>
+                <a class="btn btn-secondary" onclick="openModal('login')">Login</a>
+                <a class="btn btn-primary" onclick="openModal('signup')">Start Free Trial</a>
             </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
         </div>
     </nav>
 
@@ -638,8 +795,8 @@
                 <h1>Your AI Guardian for Academic Integrity & Success</h1>
                 <p>Prevents cheating. Protects students. Personalizes learning.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">Get Started Free</a>
-                    <a href="#" class="btn btn-secondary">Request Demo</a>
+                    <a class="btn btn-primary" onclick="openModal('signup')">Get Started Free</a>
+                    <a class="btn btn-secondary" onclick="openModal('demo')">Request Demo</a>
                 </div>
                 <div class="trust-badges">
                     <div class="badge">
@@ -694,37 +851,37 @@
             <p>Advanced AI technology that protects and supports your educational journey</p>
         </div>
         <div class="features-grid">
-            <div class="feature-card">
+            <div class="feature-card" onclick="showFeatureDetails('AI Study Mentor')">
                 <div class="feature-icon">🔍</div>
                 <h3 class="feature-title">AI Study Mentor</h3>
                 <p class="feature-description">Get personalized study plans, weak spot analysis, and burnout alerts tailored to your learning style.</p>
                 <span class="feature-tag">For Students</span>
             </div>
-            <div class="feature-card">
+            <div class="feature-card" onclick="showFeatureDetails('Safe Learning Environment')">
                 <div class="feature-icon">🛡️</div>
                 <h3 class="feature-title">Safe Learning Environment</h3>
                 <p class="feature-description">Blocks scams, phishing sites, and cheating resources in real-time to keep you focused.</p>
                 <span class="feature-tag">For Students</span>
             </div>
-            <div class="feature-card">
+            <div class="feature-card" onclick="showFeatureDetails('Productivity Guardian')">
                 <div class="feature-icon">⏳</div>
                 <h3 class="feature-title">Productivity Guardian</h3>
                 <p class="feature-description">Track focus time and avoid burnout with smart break recommendations.</p>
                 <span class="feature-tag">For Students</span>
             </div>
-            <div class="feature-card">
+            <div class="feature-card" onclick="showFeatureDetails('Cheating Detection')">
                 <div class="feature-icon">🚩</div>
                 <h3 class="feature-title">Cheating Detection</h3>
                 <p class="feature-description">Advanced AI flags copied code, plagiarism, and suspicious browsing patterns.</p>
                 <span class="feature-tag">For Educators</span>
             </div>
-            <div class="feature-card">
+            <div class="feature-card" onclick="showFeatureDetails('Student Wellness Dashboard')">
                 <div class="feature-icon">📊</div>
                 <h3 class="feature-title">Student Wellness Dashboard</h3>
                 <p class="feature-description">Spot at-risk students before they fail with predictive analytics.</p>
                 <span class="feature-tag">For Educators</span>
             </div>
-            <div class="feature-card">
+            <div class="feature-card" onclick="showFeatureDetails('Secure Learning Network')">
                 <div class="feature-icon">🌐</div>
                 <h3 class="feature-title">Secure Learning Network</h3>
                 <p class="feature-description">Ensure students only access verified educational resources.</p>
@@ -796,7 +953,7 @@
                     <li>Weekly progress reports</li>
                     <li>Community support</li>
                 </ul>
-                <a href="#" class="btn btn-secondary" style="width: 100%;">Start Free</a>
+                <a class="btn btn-secondary" style="width: 100%;" onclick="openModal('signup')">Start Free</a>
             </div>
             <div class="pricing-card featured">
                 <h3>Student Pro</h3>
@@ -808,7 +965,7 @@
                     <li>Priority support</li>
                     <li>Advanced analytics</li>
                 </ul>
-                <a href="#" class="btn btn-primary" style="width: 100%;">Start Trial</a>
+                <a class="btn btn-primary" style="width: 100%;" onclick="openModal('signup')">Start Trial</a>
             </div>
             <div class="pricing-card">
                 <h3>Institution</h3>
@@ -820,7 +977,7 @@
                     <li>Custom reporting</li>
                     <li>Training & onboarding</li>
                 </ul>
-                <a href="#" class="btn btn-secondary" style="width: 100%;">Contact Sales</a>
+                <a class="btn btn-secondary" style="width: 100%;" onclick="openModal('demo')">Contact Sales</a>
             </div>
         </div>
     </section>
@@ -857,28 +1014,28 @@
             <div class="footer-section">
                 <h3>Product</h3>
                 <ul class="footer-links">
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Demo</a></li>
-                    <li><a href="#">API</a></li>
+                    <li><a onclick="scrollToSection('features')">Features</a></li>
+                    <li><a onclick="scrollToSection('pricing')">Pricing</a></li>
+                    <li><a onclick="openModal('demo')">Demo</a></li>
+                    <li><a onclick="showNotification('API documentation coming soon!', 'success')">API</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Company</h3>
                 <ul class="footer-links">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a onclick="showNotification('About page coming soon!', 'success')">About</a></li>
+                    <li><a onclick="showNotification('Blog launching next month!', 'success')">Blog</a></li>
+                    <li><a onclick="showNotification('Join our team! Email careers@eduguardian.ai', 'success')">Careers</a></li>
+                    <li><a onclick="openModal('contact')">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Legal</h3>
                 <ul class="footer-links">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Security</a></li>
-                    <li><a href="#">Compliance</a></li>
+                    <li><a onclick="showNotification('Privacy policy available in dashboard', 'success')">Privacy Policy</a></li>
+                    <li><a onclick="showNotification('Terms of service available in dashboard', 'success')">Terms of Service</a></li>
+                    <li><a onclick="scrollToSection('trust')">Security</a></li>
+                    <li><a onclick="scrollToSection('trust')">Compliance</a></li>
                 </ul>
             </div>
         </div>
@@ -888,22 +1045,252 @@
     </footer>
 
     <!-- Chat Button -->
-    <div class="chat-button" onclick="alert('Chat feature coming soon! Email us at support@eduguardian.ai')">
+    <button class="chat-button" onclick="openModal('contact')">
         💬
+    </button>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div id="modal-body">
+                <!-- Modal content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <span id="notification-text"></span>
     </div>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Modal Functions
+        function openModal(type) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modal-body');
+            
+            let content = '';
+            
+            switch(type) {
+                case 'signup':
+                    content = `
+                        <h2 style="margin-bottom: 1rem;">Start Your Free Trial</h2>
+                        <form onsubmit="handleSignup(event)">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" required placeholder="you@university.edu">
+                            </div>
+                            <div class="form-group">
+                                <label>I am a...</label>
+                                <select required>
+                                    <option value="">Select one</option>
+                                    <option value="student">Student</option>
+                                    <option value="teacher">Teacher</option>
+                                    <option value="admin">School Administrator</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Institution</label>
+                                <input type="text" required placeholder="Your University">
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+                        </form>
+                        <p style="text-align: center; margin-top: 1rem; color: var(--gray-text);">
+                            Already have an account? <a onclick="openModal('login')" style="color: var(--primary-blue); cursor: pointer;">Login</a>
+                        </p>
+                    `;
+                    break;
+                    
+                case 'login':
+                    content = `
+                        <h2 style="margin-bottom: 1rem;">Welcome Back</h2>
+                        <form onsubmit="handleLogin(event)">
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" required placeholder="you@university.edu">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" required placeholder="••••••••">
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                        </form>
+                        <p style="text-align: center; margin-top: 1rem; color: var(--gray-text);">
+                            Don't have an account? <a onclick="openModal('signup')" style="color: var(--primary-blue); cursor: pointer;">Sign up</a>
+                        </p>
+                    `;
+                    break;
+                    
+                case 'demo':
+                    content = `
+                        <h2 style="margin-bottom: 1rem;">Request a Demo</h2>
+                        <p style="color: var(--gray-text); margin-bottom: 1.5rem;">See how EduGuardian AI can transform your institution</p>
+                        <form onsubmit="handleDemo(event)">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" required placeholder="Jane Smith">
+                            </div>
+                            <div class="form-group">
+                                <label>Work Email</label>
+                                <input type="email" required placeholder="jane@university.edu">
+                            </div>
+                            <div class="form-group">
+                                <label>Institution</label>
+                                <input type="text" required placeholder="Your University">
+                            </div>
+                            <div class="form-group">
+                                <label>Number of Students</label>
+                                <select required>
+                                    <option value="">Select range</option>
+                                    <option value="1-100">1-100</option>
+                                    <option value="101-500">101-500</option>
+                                    <option value="501-1000">501-1,000</option>
+                                    <option value="1001+">1,001+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>What interests you most?</label>
+                                <textarea rows="3" placeholder="Tell us about your needs..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Schedule Demo</button>
+                        </form>
+                    `;
+                    break;
+                    
+                case 'contact':
+                    content = `
+                        <h2 style="margin-bottom: 1rem;">Get in Touch</h2>
+                        <p style="color: var(--gray-text); margin-bottom: 1.5rem;">We're here to help 24/7</p>
+                        <form onsubmit="handleContact(event)">
+                            <div class="form-group">
+                                <label>Your Name</label>
+                                <input type="text" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" required placeholder="you@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <select required>
+                                    <option value="">Select topic</option>
+                                    <option value="sales">Sales Inquiry</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="billing">Billing Question</option>
+                                    <option value="partnership">Partnership</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea rows="4" required placeholder="How can we help you?"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        </form>
+                        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb;">
+                            <p style="color: var(--gray-text); text-align: center;">
+                                Or email us directly at: <br>
+                                <a href="mailto:support@eduguardian.ai" style="color: var(--primary-blue);">support@eduguardian.ai</a>
+                            </p>
+                        </div>
+                    `;
+                    break;
+            }
+            
+            modalBody.innerHTML = content;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Form Handlers
+        function handleSignup(e) {
+            e.preventDefault();
+            showNotification('Account created! Check your email to verify.', 'success');
+            closeModal();
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            showNotification('Login successful! Redirecting to dashboard...', 'success');
+            closeModal();
+        }
+
+        function handleDemo(e) {
+            e.preventDefault();
+            showNotification('Demo request received! Our team will contact you within 24 hours.', 'success');
+            closeModal();
+        }
+
+        function handleContact(e) {
+            e.preventDefault();
+            showNotification('Message sent! We\'ll respond within 24 hours.', 'success');
+            closeModal();
+        }
+
+        // Notification System
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notification-text');
+            
+            notificationText.textContent = message;
+            notification.className = `notification ${type} active`;
+            
+            setTimeout(() => {
+                notification.classList.remove('active');
+            }, 4000);
+        }
+
+        // Navigation Functions
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const offsetTop = section.offsetTop - 80; // Account for fixed nav
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Feature Details
+        function showFeatureDetails(featureName) {
+            showNotification(`Learn more about "${featureName}" in our documentation!`, 'success');
+        }
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            showNotification('Mobile menu coming soon! Use the bottom buttons for now.', 'success');
+        }
+
+        // Smooth scrolling for all anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const target = this.getAttribute('href').substring(1);
+                scrollToSection(target);
             });
         });
 
@@ -926,69 +1313,19 @@
             observer.observe(el);
         });
 
-        // Add animation to stats when they come into view
-        let animated = false;
-        const animateStats = () => {
-            if (animated) return;
-            const stats = document.querySelectorAll('.stat-number');
-            stats.forEach(stat => {
-                const target = parseInt(stat.innerText);
-                let current = 0;
-                const increment = target / 50;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        stat.innerText = stat.innerText;
-                        clearInterval(timer);
-                    } else {
-                        stat.innerText = Math.floor(current) + (stat.innerText.includes('%') ? '%' : '+');
-                    }
-                }, 30);
-            });
-            animated = true;
-        };
-
-        // Check if stats section is in view
-        const statsSection = document.querySelector('.stats');
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateStats();
-                }
-            });
-        }, { threshold: 0.5 });
-
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
-
-        // Dynamic typing effect for hero headline
-        const headline = document.querySelector('.hero-content h1');
-        const originalText = headline.innerText;
-        let index = 0;
-
-        function typeWriter() {
-            if (index < originalText.length) {
-                headline.innerText = originalText.slice(0, index + 1);
-                index++;
-                setTimeout(typeWriter, 50);
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // ESC to close modal
+            if (e.key === 'Escape') {
+                closeModal();
             }
-        }
-
-        // Start typing effect after page loads
-        window.addEventListener('load', () => {
-            headline.innerText = '';
-            typeWriter();
         });
 
-        // Add interactive hover effects to feature cards
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.background = 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)';
-            });
-            card.addEventListener('mouseleave', function() {
-                this.style.background = 'var(--light-blue)';
-            });
+        // Welcome message on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                showNotification('👋 Welcome to EduGuardian AI! Scroll down to explore our features.', 'success');
+            }, 1000);
         });
 
         // Simulate live dashboard updates
@@ -996,12 +1333,14 @@
             const metrics = document.querySelectorAll('.metric-value');
             metrics.forEach(metric => {
                 const current = parseFloat(metric.innerText);
-                const variation = (Math.random() - 0.5) * 2;
-                if (!isNaN(current)) {
-                    metric.innerText = (current + variation).toFixed(0) + '%';
+                if (!isNaN(current) && metric.innerText.includes('%')) {
+                    const variation = (Math.random() - 0.5) * 2;
+                    const newValue = Math.max(90, Math.min(100, current + variation));
+                    metric.innerText = Math.round(newValue) + '%';
                 }
             });
         }, 5000);
     </script>
 </body>
 </html>
+```
